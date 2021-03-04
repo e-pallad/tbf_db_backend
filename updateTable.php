@@ -106,6 +106,7 @@
             $insert = $con->query($query);
             if ($insert) {
                 $statusMsg[] = "Erfolgreich $con->affected_rows Zeilen importiert";
+                $statusMsg[] = $query;
             } else {
                 $statusMsg[] = "Fehlgeschlagen: " . $con->error;
                 $statusMsg[] = $query;
