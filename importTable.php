@@ -81,7 +81,13 @@
                             if ($value === '') {
                                 $query .= "`". $key . "` = NULL";
                             } else {
-                                $query .= "`". $key . "`" . " = '" . $value . "'";
+                                $number = str_replace(',', '.', $value);
+                                if (is_numeric($number)) {
+                                    $value = number_format($number, 2, '.', '');
+                                    $query .= "`". $key . "`" . " = '" . $value . "'";
+                                } else {
+                                    $query .= "`". $key . "`" . " = '" . $value . "'";
+                                }
                             }
                             
                             if ($i < count($row) - 2) {
