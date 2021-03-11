@@ -45,7 +45,7 @@
 
                     $query = "INSERT INTO `Gesamtdatenbank` (" . $keys . ") VALUES (" . $values . ")";
                 } else {
-                // Else perform UPDATE
+                    // Else perform UPDATE
                     $query = "UPDATE `Gesamtdatenbank` SET ";
 
                     $i = 0;
@@ -74,6 +74,13 @@
                 }
             } else {
                 $dataArray = json_decode($_POST['data'], 1);
+
+                // If an Update to PlancalNova-Liste is happening switch array keys of Zeichnung to R&I EB68-Nr.
+                if ($table === "RI-TBF_SEF_PlancalNova_Liste") {
+                    $dataArray["R&I EB68-Nr."] = $dataArray["Zeichnung"];
+                    unset($dataArray["Zeichnung"]);
+                }
+
                 $query = "UPDATE `Gesamtdatenbank` SET ";
 
                 $i = 0;
