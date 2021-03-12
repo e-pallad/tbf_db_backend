@@ -81,6 +81,14 @@
                     unset($dataArray["Zeichnung"]);
                 }
 
+                // If an Update to Revit-Liste is happening switch array keys accordingly
+                if ($table === "RI-TBF_SEF_Revit_Liste") {
+                    if (array_key_exists("Plannummer R+I", $dataArray)) {
+                        $dataArray["R&I EB68-Nr."] = $dataArray["Plannummer R+I"];
+                        unset($dataArray["Plannummer R+I"]);
+                    }
+                }
+
                 $query = "UPDATE `Gesamtdatenbank` SET ";
 
                 $i = 0;
