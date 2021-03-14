@@ -52,12 +52,6 @@
                 array_splice($importArray, 0, 1);
                 // Remove row 3 & 4 from import
                 array_splice($importArray, 1, 2);
-
-                header('Content-Type: application/json');
-                header('Access-Control-Allow-Origin: *');
-                
-                echo json_encode($importArray);
-                exit;
             } 
 
             foreach ($importArray as $k => $r) {
