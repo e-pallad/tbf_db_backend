@@ -3,13 +3,12 @@
     include './libs/SimpleXLSX.php';
 
     /* 
-    
         https://askubuntu.com/a/767534
     */
-        error_reporting(-1);
-        ini_set("display_errors", "1");
-        ini_set("log_errors", 1);
-        ini_set("error_log", $_SERVER['DOCUMENT_ROOT'] . "/php-error.log");
+    error_reporting(-1);
+    ini_set("display_errors", "1");
+    ini_set("log_errors", 1);
+    ini_set("error_log", $_SERVER['DOCUMENT_ROOT'] . "/php-error.log");
 
     
 
@@ -43,9 +42,25 @@
     
     if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)) {
         if ($xlsx = SimpleXLSX::parse($sourceFile)) {
+
             $colNames = $rows = [];
 
-            foreach ($xlsx->rows() as $k => $r) {
+            $importArray = $xlsx->rows();
+
+            if ($table === 'RI-TBF_SEF_Revit_Liste') {
+                // Remove row 1 from import
+                array_splice($importArray, 0, 1);
+                // Remove row 3 & 4 from import
+                array_splice($importArray, 1, 2);
+
+                header('Content-Type: application/json');
+                header('Access-Control-Allow-Origin: *');
+                
+                echo json_encode($importArray);
+                exit;
+            } 
+
+            foreach ($importArray as $k => $r) {
                 if ( $k === 0 ) {
                     $colNames = $r;
                     array_unshift($colNames,"TableID");
