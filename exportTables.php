@@ -40,7 +40,7 @@
     } elseif ($table == 'RI-TBF_SEF_PlancalNova_Liste') {
         $query = "SELECT `Index`, `Klasse`, `Bezeichnung`, `Medium`, `R&I EB68-Nr.` AS `Zeichnung`, `TBF_ID`, `AKZ_Gr1_Standort`, `AKZ_Gr2_Anlagenteil`, `AKZ_Gr3_Aggregat`, `AKZ_Gr4_Nummer`, `AKZ_Gr5_Aggregat`, `AKZ_Gr6_Nummer`, `Benennung`, `Benennung Zusatz`, `Hersteller`, `Typ`, `Nennleistung`, `Nennspannung`, `Nennstrom`, `Massenstrom`, `Signalart` FROM `Gesamtdatenbank`";
     } elseif ($table == 'RI-TBF_SEF_Revit_Liste') {
-        $query = "SELECT `Revit_ID` AS 'ID', `FamilyAndType`,`Typ`, `Benennung` AS 'Bezeichnung', `R&I EB68-Nr.` AS 'Plannummer R+I', CONCAT(`AKZ_Gr1_Standort`,'.',`AKZ_Gr2_Anlagenteil`,'.',`AKZ_Gr3_Aggregat`,'.',`AKZ_Gr4_Nummer`,'.',`AKZ_Gr5_Aggregat`,'.',`AKZ_Gr6_Nummer`) AS 'AKZ',`Länge [m]` AS 'Laenge',`Breite`,`Höhe` AS 'Hoehe',`Radius`,`Ebene`,`TBF_ID` AS 'Element ID' FROM `Gesamtdatenbank`";
+        $query = "SELECT `Revit_ID` AS 'ID', `FamilyAndType`,`Typ`, `Benennung` AS 'Bezeichnung', `R&I EB68-Nr.` AS 'Plannummer R+I', CONCAT(`AKZ_Gr1_Standort`,'.',`AKZ_Gr2_Anlagenteil`,'.',`AKZ_Gr3_Aggregat`,'.',`AKZ_Gr4_Nummer`,'.',`AKZ_Gr5_Aggregat`,'.',`AKZ_Gr6_Nummer`) AS 'AKZ',`TBF_ID` AS 'Element ID' FROM `Gesamtdatenbank`";
     } elseif ($table == 'RI-TBF_SEF_Rohrleitungsliste') {
         $query = "SELECT `TBF_ID`,`PnPID`,`AKZ_Gr1_Standort`,`AKZ_Gr2_Anlagenteil`,`AKZ_Gr3_Aggregat`,`AKZ_Gr4_Nummer`,`AKZ_Gr5_Aggregat`,`AKZ_Gr6_Nummer`,`Benennung`,`Benennung Zusatz`,`R&I EB68-Nr.`,`Feld-Nr.`,`Zchn. Rev. Nr.`,`Hersteller`,`Typ`,`Nennleistung`,`Werkstoff`,`Zustand/Bearbeitung`,`Bemerkung`,`DN`,`PN`,`Durchflussmenge`,`Einheit Df-Menge`,`Durchmesser`,`Wanddicke`,`Betriebsüberdruck`,`Berechnungsüberdruck`,`Betriebstemperatur`,`Berechnungstemperatur`,`Länge [m]` FROM `Gesamtdatenbank`";
     } elseif ($table == 'RI-TBF_SEF_Stoffstromliste') {
@@ -56,8 +56,8 @@
     if ($table === 'RI-TBF_SEF_Revit_Liste') {
         $data[] = array("335ccc90-123c-47fd-9d51-c85684a75b39-00545df6");
         $data[] = $headerRow;
-        $data[] = array("","","Typ","Bezeichnung","Plannummer R+I","AKZ","Laenge","Breite","Hoehe","Radius","Ebene","Element ID");
-        $data[] = array("","","ElementId","Text","Text","Text","Length","Length","Length","Length","ElementId","Number");
+        $data[] = array("","","Typ","Bezeichnung","Plannummer R+I","AKZ","Element ID");
+        $data[] = array("","","ElementId","Text","Text","Text","Number");
         $data = array_merge($data, mysqli_fetch_all($con->query($query)));
     } else {
         $data[] = $headerRow;
