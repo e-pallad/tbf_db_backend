@@ -87,6 +87,10 @@
                         $dataArray["R&I EB68-Nr."] = $dataArray["Plannummer R+I"];
                         unset($dataArray["Plannummer R+I"]);
                     }
+                    if (array_key_exists("Typ", $dataArray)) {
+                        $dataArray["Typ"] = $dataArray["Revit_Type"];
+                        unset($dataArray["Revit_Type"]);
+                    }
                 }
 
                 $query = "UPDATE `Gesamtdatenbank` SET ";

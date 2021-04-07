@@ -52,6 +52,10 @@
                 array_splice($importArray, 0, 1);
                 // Remove row 3 & 4 from import
                 array_splice($importArray, 1, 2);
+                if ($importArray["Typ"]) {
+                    $importArray["Revit_Type"] = $importArray["Typ"];
+                    unset($importArray["Typ"]);
+                }
             } 
 
             foreach ($importArray as $k => $r) {
