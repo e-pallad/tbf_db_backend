@@ -69,9 +69,9 @@
         $data[] = $headerRow;
         $data = array_merge($data, mysqli_fetch_all($con->query($query)));
         if ($korrFields) {
-            foreach ($data as $outerArr => $innerArr) {
-                foreach ($innerArr as $row => $field) {
-                    echo json_encode($row);
+            foreach ($data as $outerArr => $row) {
+                foreach ($row as $rowData) {
+                    echo json_encode($rowData);
                     break;
 
                     foreach ($korrFields as $key) {
