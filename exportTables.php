@@ -71,7 +71,7 @@
         if ($korrFields) {
             foreach ($data as $outerArr => $row) {
                 foreach ($row as $rowData) {
-                    echo json_encode($rowData);
+                    echo json_encode($row);
                     break;
 
                     foreach ($korrFields as $key) {
@@ -97,7 +97,7 @@
 			header('Content-Type: application/json;');
             header('Access-Control-Allow-Origin: *');
 
-            echo json_encode($data);
+            //echo json_encode($data);
             break;
         default:
             echo http_response_code(403);
