@@ -71,6 +71,8 @@
         if ($korrFields) {
             foreach ($data as $outerArr => $innerArr) {
                 foreach ($innerArr as $row => $field) {
+                    echo json_encode($innerArr);
+                    break;
                     foreach ($korrFields as $key) {
                         number_format($row[$key],2,',','.');
                     }
