@@ -71,7 +71,7 @@
         if ($korrFields) {
             foreach ($data as $outerArr => $innerArr) {
                 foreach ($innerArr as $row => $field) {
-                    echo $field;
+                    echo json_encode($row);
                     break;
 
                     foreach ($korrFields as $key) {
