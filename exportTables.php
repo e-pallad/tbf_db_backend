@@ -72,7 +72,7 @@
             foreach ($data as $outerArr => $innerArr) {
                 foreach ($innerArr as $row => $field) {
                     foreach ($korrFields as $key) {
-                        number_format($field[$key],2,',','.');
+                        number_format($row[$key],2,',','.');
                     }
                 }
             }
