@@ -72,11 +72,11 @@
             foreach ($data as $outerArr => $row) {
                 foreach ($row as $rowData) {
                     echo json_encode($row);
-                    break;
-
                     foreach ($korrFields as $key) {
                         number_format($row[$key],2,',','.');
                     }
+                    echo json_encode($row);
+                    exit;
                 }
             }
         }
