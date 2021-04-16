@@ -63,17 +63,22 @@
     } else {
         $data[] = $headerRow;
         $data = array_merge($data, mysqli_fetch_all($con->query($query)));
-        if ($fields) {
-            foreach ($variable as $key => $value) {
-                # code...
+        if ($korrFields) {
+            foreach ($data as $outerArr => $innerArr) {
+                foreach ($innerArr as $row => $field) {
+                    foreach ($korrFields as $key) {
+                        number_format($field[$key],2,',','.');
+                    }
+                }
             }
         }
     }
 
     switch ($method) {
         case 'GET':
-            $xlsx = SimpleXLSXGen::fromArray( $data );
             /*
+            $xlsx = SimpleXLSXGen::fromArray( $data );
+            
             header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8');
             header('Access-Control-Allow-Origin: *');
             header('Content-Disposition: attachment; filename="'. $table .'.xlsx";');
