@@ -69,14 +69,19 @@
         $data[] = $headerRow;
         $data = array_merge($data, mysqli_fetch_all($con->query($query)));
         if ($korrFields) {
+            $isFirst = true;
             foreach ($data as $outerArr => $row) {
                 foreach ($row as $rowData) {
+                    if ($isFirst) {
+                        $isFirst = false;
+                        continue;
+                    }
                     echo json_encode($row);
                     foreach ($korrFields as $key) {
                         number_format($row[$key],2,',','.');
                     }
                     echo json_encode($row);
-                    exit;
+                    //exit;
                 }
             }
         }
