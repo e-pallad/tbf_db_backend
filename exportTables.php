@@ -79,8 +79,6 @@
                     foreach ($korrFields as $key) {
                         $row[$key] = number_format(floatval($row[$key]),2,',','.');
                     }
-                    echo json_encode($row);
-                    exit;
                 }
             }
         }
@@ -101,7 +99,7 @@
 			header('Content-Type: application/json;');
             header('Access-Control-Allow-Origin: *');
 
-            //echo json_encode($data);
+            echo json_encode($data);
             break;
         default:
             echo http_response_code(403);
