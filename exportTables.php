@@ -71,17 +71,17 @@
         if ($korrFields) {
             $isFirst = true;
             foreach ($data as $outerArr => $row) {
+                if ($isFirst) {
+                    $isFirst = false;
+                    continue;
+                }
                 foreach ($row as $rowData) {
-                    if ($isFirst) {
-                        $isFirst = false;
-                        continue;
-                    }
                     echo json_encode($row);
                     foreach ($korrFields as $key) {
                         number_format($row[$key],2,',','.');
                     }
                     echo json_encode($row);
-                    //exit;
+                    exit;
                 }
             }
         }
