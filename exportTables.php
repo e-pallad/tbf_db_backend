@@ -64,15 +64,20 @@
         $data[] = array("","","ElementId","Text","Text","Text","Number");
         $mysqlData = mysqli_fetch_all($con->query($query));
         echo json_encode($mysqlData);
-        $data = array_merge($data, $mysqlData);
-        echo json_encode($data);
-        exit;
+        $CSVdata = array_merge($data, $mysqlData);
+        echo json_encode($CSVdata);
     } else {
         $data[] = $headerRow;
-        $data = array_merge($data, mysqli_fetch_all($con->query($query)));
+
+        $mysqlData = mysqli_fetch_all($con->query($query));
+        echo json_encode($mysqlData);
+        $CSVdata = array_merge($data, $mysqlData);
+        echo json_encode($CSVdata);
+        exit;
+        
         if ($korrFields) {
             $isFirst = true;
-            foreach ($data as $outerArr => $row) {
+            foreach ($CSVdata as $outerArr => $row) {
                 if ($isFirst) {
                     $isFirst = false;
                     continue;
@@ -88,7 +93,7 @@
 
     switch ($method) {
         case 'GET':
-            $xlsx = SimpleXLSXGen::fromArray( $data );
+            $xlsx = SimpleXLSXGen::fromArray( $CSVdata );
             
             header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8');
             header('Access-Control-Allow-Origin: *');
