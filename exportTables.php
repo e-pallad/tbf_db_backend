@@ -62,7 +62,11 @@
         $data[] = $headerRow;
         $data[] = array("","","Typ","Bezeichnung","Plannummer R+I","AKZ","Element ID");
         $data[] = array("","","ElementId","Text","Text","Text","Number");
-        $data = array_merge($data, mysqli_fetch_all($con->query($query)));
+        $mysqlData = mysqli_fetch_all($con->query($query));
+        echo json_encode($mysqlData);
+        $data = array_merge($data, $mysqlData);
+        echo json_encode($data);
+        exit;
     } else {
         $data[] = $headerRow;
         $data = array_merge($data, mysqli_fetch_all($con->query($query)));
