@@ -68,13 +68,9 @@
         echo json_encode($CSVdata);
     } else {
         $data[] = $headerRow;
-
         $mysqlData = mysqli_fetch_all($con->query($query));
-        echo json_encode($mysqlData);
         $CSVdata = array_merge($data, $mysqlData);
-        echo json_encode($CSVdata);
-        exit;
-        
+
         if ($korrFields) {
             $isFirst = true;
             foreach ($CSVdata as $outerArr => $row) {
@@ -86,6 +82,8 @@
                     foreach ($korrFields as $key) {
                         $row[$key] = number_format(floatval($row[$key]),2,',','.');
                     }
+                    echo json_encode($row);
+                    exit;
                 }
             }
         }
