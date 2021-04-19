@@ -82,10 +82,9 @@
                     foreach ($korrFields as $key) {
                         $row[$key] = number_format(floatval($row[$key]),2,',','.');
                     }
-                    echo json_encode($row);
-                    exit;
                 }
             }
+            echo json_encode($CSVdata);
         }
     }
 
