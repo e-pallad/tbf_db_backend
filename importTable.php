@@ -54,13 +54,15 @@
                 array_splice($importArray, 0, 1);
                 // Remove row 3 & 4 from import
                 array_splice($importArray, 1, 2);
-                if ($importArray[0]["Typ"]) {
-                    $importArray[0]["Revit_Type"] = $importArray[0]["Typ"];
-                    unset($importArray[0]["Typ"]);
-                }
 
                 header('Content-Type: application/json');
                 header('Access-Control-Allow-Origin: *');
+
+                if ($importArray[0]["Typ"]) {
+                    $importArray[0]["Revit_Type"] = $importArray[0]["Typ"];
+                    unset($importArray[0]["Typ"]);
+                    echo "found it!";
+                }
 
                 echo json_encode($importArray);
                 exit;
