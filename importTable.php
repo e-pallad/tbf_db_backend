@@ -185,7 +185,7 @@
             header('Access-Control-Allow-Origin: *');
             
             echo $importArray;
-            //echo json_encode($statusMsg);
+            echo json_encode($statusMsg);
             $con->close();
             break;
         default:
