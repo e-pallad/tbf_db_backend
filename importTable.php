@@ -54,9 +54,9 @@
                 array_splice($importArray, 0, 1);
                 // Remove row 3 & 4 from import
                 array_splice($importArray, 1, 2);
-                if ($importArray[["Typ"]]) {
-                    $importArray[["Revit_Type"]] = $importArray[["Typ"]];
-                    unset($importArray[["Typ"]]);
+                if ($importArray[0]["Typ"]) {
+                    $importArray[0]["Revit_Type"] = $importArray[0]["Typ"];
+                    unset($importArray[0]["Typ"]);
                 }
 
                 header('Content-Type: application/json');
