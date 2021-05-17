@@ -58,6 +58,9 @@
                     $importArray["Revit_Type"] = $importArray["Typ"];
                     unset($importArray["Typ"]);
                 }
+
+                echo json_encode($importArray);
+                exit;
             } 
 
             foreach ($importArray as $k => $r) {
