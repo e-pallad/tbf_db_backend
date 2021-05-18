@@ -59,9 +59,8 @@
                 header('Access-Control-Allow-Origin: *');
 
                 if (in_array("Typ", $importArray[0])) {
-                    //$importArray[0][0]["Revit_Type"] = $importArray[0][0]["Typ"];
-                    //unset($importArray[0][0]["Typ"]);
-                    echo "found it!";
+                    $importArray[0][2] = "Revit_Type";
+                    $importArray[0][9] = "TBF_ID";
                 }
 
                 echo json_encode($importArray);
