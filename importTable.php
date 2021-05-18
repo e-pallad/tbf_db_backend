@@ -188,7 +188,6 @@
             header('Content-Type: application/json');
             header('Access-Control-Allow-Origin: *');
             
-            echo json_encode($importArray);
             echo json_encode($statusMsg);
             $con->close();
             break;
