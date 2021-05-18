@@ -58,9 +58,9 @@
                 header('Content-Type: application/json');
                 header('Access-Control-Allow-Origin: *');
 
-                if ($importArray[0][0]["Typ"]) {
-                    $importArray[0][0]["Revit_Type"] = $importArray[0][0]["Typ"];
-                    unset($importArray[0][0]["Typ"]);
+                if (in_array("Typ", $importArray[0])) {
+                    //$importArray[0][0]["Revit_Type"] = $importArray[0][0]["Typ"];
+                    //unset($importArray[0][0]["Typ"]);
                     echo "found it!";
                 }
 
