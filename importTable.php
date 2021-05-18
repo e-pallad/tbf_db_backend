@@ -61,6 +61,7 @@
                 if (in_array("Typ", $importArray[0])) {
                     $importArray[0][0] = "Revit_ID";
                     $importArray[0][2] = "Revit_Type";
+                    $importArray[0][4] = "Länge";
                     $importArray[0][6] = "Höhe";
                     $importArray[0][9] = "TBF_ID";
                 }
