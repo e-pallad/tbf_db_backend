@@ -61,7 +61,7 @@
                 if (in_array("Typ", $importArray[0])) {
                     $importArray[0][0] = "Revit_ID";
                     $importArray[0][2] = "Revit_Type";
-                    $importArray[0][4] = "Länge";
+                    $importArray[0][4] = "Länge [m]";
                     $importArray[0][6] = "Höhe";
                     $importArray[0][9] = "TBF_ID";
                 }
@@ -187,7 +187,7 @@
         case 'POST':
             header('Content-Type: application/json');
             header('Access-Control-Allow-Origin: *');
-            
+
             echo json_encode($statusMsg);
             $con->close();
             break;
