@@ -65,9 +65,6 @@
                     $importArray[0][6] = "Höhe";
                     $importArray[0][9] = "TBF_ID";
                 }
-
-                echo json_encode($importArray);
-                exit;
             } 
 
             foreach ($importArray as $k => $r) {
