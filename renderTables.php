@@ -51,7 +51,7 @@
 
     function headerConfig($array, $dropDownValues) {
         foreach ($array as $key => $value) {
-            if ($value->name == 'PnPID' || $value->name == 'TBF_ID') {
+            if ($value->name == 'PnPID' || $value->name == 'TBF_ID' || $value->name == 'Revit_ID') {
                 $returnArray[] = array('headerName' => $value->name, 'field' => $value->name, 'editable' => false);
             } elseif ($value->name == 'Typical Nr. MSK') {
                 $returnArray[] = array(
