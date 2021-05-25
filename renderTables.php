@@ -55,7 +55,9 @@
             $value->name == 'TBF_ID' || 
             $value->name == 'Revit_ID' ||
             $value->name == 'FamilyandType' ||
-            $value->name == 'Type') {
+            $value->name == 'Type' ||
+            $value->name == 'R&I EB68-Nr' ||
+            $value->name == 'Plannummer R+I') {
                 $returnArray[] = array('headerName' => $value->name, 'field' => $value->name, 'editable' => false);
             } elseif ($value->name == 'Typical Nr. MSK') {
                 $returnArray[] = array(
