@@ -57,7 +57,8 @@
             $value->name == 'FamilyandType' ||
             $value->name == 'Type' ||
             $value->name == 'R&I EB68-Nr' ||
-            $value->name == 'Plannummer R+I') {
+            $value->name == 'Plannummer R+I' || 
+            $value->name == 'Ebene') {
                 $returnArray[] = array('headerName' => $value->name, 'field' => $value->name, 'editable' => false);
             } elseif ($value->name == 'Typical Nr. MSK') {
                 $returnArray[] = array(
