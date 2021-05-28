@@ -51,14 +51,16 @@
 
     function headerConfig($array, $dropDownValues) {
         foreach ($array as $key => $value) {
-            if ($value->name == 'PnPID' || 
-            $value->name == 'TBF_ID' || 
-            $value->name == 'Revit_ID' ||
-            $value->name == 'FamilyandType' ||
-            $value->name == 'Type' ||
-            $value->name == 'R&I EB68-Nr' ||
-            $value->name == 'Plannummer R+I' || 
-            $value->name == 'Ebene') {
+            if (
+                $value->name == 'PnPID' || 
+                $value->name == 'TBF_ID' || 
+                $value->name == 'Revit_ID' ||
+                $value->name == 'FamilyandType' ||
+                $value->name == 'Type' ||
+                $value->name == 'R&I EB68-Nr' ||
+                $value->name == 'Plannummer R+I' || 
+                $value->name == 'Ebene'
+            ) {
                 $returnArray[] = array('headerName' => $value->name, 'field' => $value->name, 'editable' => false);
             } elseif ($value->name == 'Typical Nr. MSK') {
                 $returnArray[] = array(
