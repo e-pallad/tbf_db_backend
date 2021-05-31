@@ -88,6 +88,12 @@
     foreach ($data as $rowKey => $rowArray) {
         foreach ($rowArray as $cellKey => $cellContent) {
             $newKey = $header[$cellKey]->name;
+
+            $number = str_replace('.', ',', $cellContent);
+            if (is_numeric($number)) {
+                $cellContent = number_format($number, 2, ',', '');
+            }
+
             $newRow[$newKey] = $cellContent;
         }
         array_push($listTableContent, $newRow);
