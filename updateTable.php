@@ -24,7 +24,6 @@
                 $check = $con->query("SELECT `TBF_ID` FROM `Gesamtdatenbank` WHERE `TBF_ID` = '" . $dataArray['TBF_ID'] . "'");
                 // If not perform INSERT
                 if ($check->num_rows == 0) {
-                    $statusMsg[] = "INSERT done!";
                     $i = 0;
                     $values = "";
                     $keys = "";
@@ -47,7 +46,6 @@
 
                     $query = "INSERT INTO `Gesamtdatenbank` (" . $keys . ") VALUES (" . $values . ")";
                 } else {
-                    $statusMsg[] = "UPDATE done!";
                     // Else perform UPDATE
                     $query = "UPDATE `Gesamtdatenbank` SET ";
 
@@ -108,7 +106,9 @@
                     
                     if (!empty($value) || $value === "0") {
                         // Check for comma seperated float values and convert to dot seperated if so
-                        $number = str_replace('.', '', $value);
+                        if (preg_match("([0-9]+.{1,}),([0-9]{0,2})", $value)) {
+                            $number = str_replace('.', '', $value);
+                        }
                         $number = str_replace(',', '.', $number);
                         if (is_numeric($number)) {
                             $value = number_format($number, 2, '.', '');
