@@ -29,10 +29,8 @@
                     $keys = "";
                     foreach ($dataArray as $key => $value) {
                         // Check for comma seperated float values and convert to dot seperated if so
-                        $number = str_replace('.', '', $value);
-                        $number = str_replace(',', '.', $number);
-                        if (is_numeric($number)) {
-                            $value = number_format($number, 2, '.', '');
+                        if (preg_match('/([0-9]+.{1,}),([0-9]{0,2})/', $value, $number)) {
+                            $value = str_replace('.', '', $number[1]) . "." . $number[2];
                         }
                         $values .= "'" . $value . "'";
                         $keys .= "`" . $key . "`";
@@ -57,10 +55,8 @@
                         } 
                         if (!empty($value) || $value === "0") {
                             // Check for comma seperated float values and convert to dot seperated if so
-                            $number = str_replace('.', '', $value);
-                            $number = str_replace(',', '.', $number);
-                            if (is_numeric($number)) {
-                                $value = number_format($number, 2, '.', '');
+                            if (preg_match('/([0-9]+.{1,}),([0-9]{0,2})/', $value, $number)) {
+                                $value = str_replace('.', '', $number[1]) . "." . $number[2];
                             }
                             $query .= "`". $key . "`" . " = '" . $value . "'";
                         } else {
@@ -109,11 +105,6 @@
                         if (preg_match('/([0-9]+.{1,}),([0-9]{0,2})/', $value, $number)) {
                             $value = str_replace('.', '', $number[1]) . "." . $number[2];
                         }
-                        /*
-                        if (is_numeric($number)) {
-                            $value = number_format($number, 2, '.', '');
-                        }
-                        */
                         $query .= "`". $key . "`" . " = '" . $value . "'";
                     } else {
                         $query .= "`". $key . "`" . " = NULL";

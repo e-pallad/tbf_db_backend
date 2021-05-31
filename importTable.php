@@ -103,14 +103,10 @@
                             if ($value === '') {
                                 $query .= "`". $key . "` = NULL";
                             } else {
-                                $number = str_replace('.', '', $value);
-                                $number = str_replace(',', '.', $number);
-                                if (is_numeric($number)) {
-                                    $value = number_format($number, 2, '.', '');
-                                    $query .= "`". $key . "`" . " = '" . $value . "'";
-                                } else {
-                                    $query .= "`". $key . "`" . " = '" . $value . "'";
+                                if (preg_match('/([0-9]+.{1,}),([0-9]{0,2})/', $value, $number)) {
+                                    $value = str_replace('.', '', $number[1]) . "." . $number[2];
                                 }
+                                $query .= "`". $key . "`" . " = '" . $value . "'";
                             }
                             
                             if ($i < count($row) - 2) {
@@ -189,8 +185,7 @@
             header('Content-Type: application/json');
             header('Access-Control-Allow-Origin: *');
 
-            //echo json_encode($statusMsg);
-            echo $query; 
+            echo json_encode($statusMsg);
             $con->close();
             break;
         default:
