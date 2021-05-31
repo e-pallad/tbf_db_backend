@@ -29,7 +29,8 @@
                     $keys = "";
                     foreach ($dataArray as $key => $value) {
                         // Check for comma seperated float values and convert to dot seperated if so
-                        $number = str_replace(',', '.', $value);
+                        $number = str_replace('.', '', $value);
+                        $number = str_replace(',', '.', $number);
                         if (is_numeric($number)) {
                             $value = number_format($number, 2, '.', '');
                         }
