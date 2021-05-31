@@ -24,6 +24,7 @@
                 $check = $con->query("SELECT `TBF_ID` FROM `Gesamtdatenbank` WHERE `TBF_ID` = '" . $dataArray['TBF_ID'] . "'");
                 // If not perform INSERT
                 if ($check->num_rows == 0) {
+                    $statusMsg[] = "INSERT done!";
                     $i = 0;
                     $values = "";
                     $keys = "";
@@ -46,6 +47,7 @@
 
                     $query = "INSERT INTO `Gesamtdatenbank` (" . $keys . ") VALUES (" . $values . ")";
                 } else {
+                    $statusMsg[] = "UPDATE done!";
                     // Else perform UPDATE
                     $query = "UPDATE `Gesamtdatenbank` SET ";
 
