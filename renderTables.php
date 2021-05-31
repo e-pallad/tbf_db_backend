@@ -88,17 +88,7 @@
     foreach ($data as $rowKey => $rowArray) {
         foreach ($rowArray as $cellKey => $cellContent) {
             $newKey = $header[$cellKey]->name;
-
-            if ($newKey != 'PnPID' || $newKey != 'TBF_ID') {
-                $number = str_replace('.', ',', $cellContent);
-                if (is_numeric($number)) {
-                    $cellContent = number_format($number, 2, ',', '');
-                }
-                
-                $newRow[$newKey] = $cellContent;
-            } else {
-                $newRow[$newKey] = $cellContent;
-            }
+            $newRow[$newKey] = $cellContent;
         }
         array_push($listTableContent, $newRow);
         unset($newRow);
