@@ -105,7 +105,7 @@
                             } else {
                                 $number = str_replace(',', '.', $value);
                                 if (is_numeric($number)) {
-                                    $value = number_format($number, 2, '.', '');
+                                    //$value = number_format($number, 2, '.', '');
                                     $query .= "`". $key . "`" . " = '" . $value . "'";
                                 } else {
                                     $query .= "`". $key . "`" . " = '" . $value . "'";
