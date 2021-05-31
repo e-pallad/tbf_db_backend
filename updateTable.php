@@ -106,13 +106,15 @@
                     
                     if (!empty($value) || $value === "0") {
                         // Check for comma seperated float values and convert to dot seperated if so
-                        if (preg_match("([0-9]+.{1,}),([0-9]{0,2})", $value)) {
-                            $number = str_replace('.', '', $value);
+                        if (preg_match("([0-9]+.{1,},)", $value, $number)) {
+                            $numbervalue = str_replace('.', '', $number[1]);
+                            $numbervalue .= "." . $number[2];
                         }
-                        $number = str_replace(',', '.', $number);
+                        /*
                         if (is_numeric($number)) {
                             $value = number_format($number, 2, '.', '');
                         }
+                        */
                         $query .= "`". $key . "`" . " = '" . $value . "'";
                     } else {
                         $query .= "`". $key . "`" . " = NULL";
