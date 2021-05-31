@@ -90,7 +90,7 @@
             $newKey = $header[$cellKey]->name;
 
             $number = str_replace('.', ',', $cellContent);
-            if (is_numeric($number)) {
+            if (is_numeric($number) || $newKey !== 'PnPID' || $newKey !== 'TBF_ID' || $newKey !== 'Feld-Nr.') {
                 $cellContent = number_format($number, 2, ',', '');
             }
 
