@@ -29,7 +29,7 @@
                     $keys = "";
                     foreach ($dataArray as $key => $value) {
                         // Check for comma seperated float values and convert to dot seperated if so
-                        if (preg_match('/([0-9]+.{1,}),([0-9]{0,2})/', $value, $number)) {
+                        if (preg_match('/([0-9]+.*),([0-9]{0,2})/', $value, $number)) {
                             $value = str_replace('.', '', $number[1]) . "." . $number[2];
                         }
                         $values .= "'" . $value . "'";
@@ -55,7 +55,7 @@
                         } 
                         if (!empty($value) || $value === "0") {
                             // Check for comma seperated float values and convert to dot seperated if so
-                            if (preg_match('/([0-9]+.{1,}),([0-9]{0,2})/', $value, $number)) {
+                            if (preg_match('/([0-9]+.*),([0-9]{0,2})/', $value, $number)) {
                                 $value = str_replace('.', '', $number[1]) . "." . $number[2];
                             }
                             $query .= "`". $key . "`" . " = '" . $value . "'";
@@ -102,7 +102,7 @@
                     
                     if (!empty($value) || $value === "0") {
                         // Check for comma seperated float values and convert to dot seperated if so
-                        if (preg_match('/([0-9]+.{1,}),([0-9]{0,2})/', $value, $number)) {
+                        if (preg_match('/([0-9]+.*),([0-9]{0,2})/', $value, $number)) {
                             $value = str_replace('.', '', $number[1]) . "." . $number[2];
                         }
                         $query .= "`". $key . "`" . " = '" . $value . "'";

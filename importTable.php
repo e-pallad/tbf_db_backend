@@ -103,7 +103,7 @@
                             if ($value === '') {
                                 $query .= "`". $key . "` = NULL";
                             } else {
-                                if (preg_match('/([0-9]+.{1,}),([0-9]{0,2})/', $value, $number)) {
+                                if (preg_match('/([0-9]+.*),([0-9]{0,2})/', $value, $number)) {
                                     $value = str_replace('.', '', $number[1]) . "." . $number[2];
                                 }
                                 $query .= "`". $key . "`" . " = '" . $value . "'";
