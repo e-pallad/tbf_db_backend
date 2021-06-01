@@ -38,8 +38,6 @@
         $tableID = 5;
     } elseif ($table == 'RI-TBF_SEF_Stoffstromliste') {
         $tableID = 6;
-    } else {
-        $tableID = NULL;
     }
     
     if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)) {
