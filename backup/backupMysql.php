@@ -1,9 +1,5 @@
 <?php
     include_once('../connect.php');
-    $dbhost = 'localhost';
-    $dbuser = 'username';
-    $dbpassword = 'password';
-    $dbname = 'datenbankname';
     
     $dumpfile = $dbname . "_" . date("Y-m-d_H-i-s") . ".sql";
     
