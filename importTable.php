@@ -21,23 +21,26 @@
     $fileName = basename($_FILES["file"]["name"]);
     $targetFilePath = $targetDir . $fileName;
     $sourceFile = "./uploads/" . $fileName;
+    $tableActivator = 1;
 
     function duplicateValues(&$item, $value) {
         $item = $item . "=VALUES(" . $item . ")";
     }
 
     if ($table == 'RI-TBF_SEF_Apparateliste') {
-        $tableID = 1;
+        $tableSelector = 'APP';
     } elseif ($table == 'RI-TBF_SEF_Armaturenliste') {
-        $tableID = 2;
+        $tableSelector = 'ARM';
     } elseif ($table == 'RI-TBF_SEF_Messstellenliste') {
-        $tableID = 3;
+        $tableSelector = 'MES';
     } elseif ($table == 'RI-TBF_SEF_Elektrokomponentenliste') {
-        $tableID = 4;
+        $tableSelector = 'EKL';
     } elseif ($table == 'RI-TBF_SEF_Elektroangaben') {
-        $tableID = 5;
+        $tableSelector = 'EAN';
     } elseif ($table == 'RI-TBF_SEF_Stoffstromliste') {
-        $tableID = 6;
+        $tableSelector = 'SSL';
+    } elseif ($table == 'RI-TBF_SEF_Revit_Liste') {
+        $tableSelector = 'REV';
     } else {
         $tableID = NULL;
     }
@@ -70,11 +73,11 @@
             foreach ($importArray as $k => $r) {
                 if ( $k === 0 ) {
                     $colNames = $r;
-                    array_unshift($colNames,"TableID");
+                    array_unshift($colNames,$tableSelector);
                     continue;
                 } 
 
-                array_unshift($r, $tableID); 
+                array_unshift($r, $tableActivator); 
 
                 $rows[] = array_combine( $colNames, $r );
             }
@@ -84,8 +87,8 @@
                     if (isset($row["TBF_ID"])) {
                         unset($row["TBF_ID"]);
                     }
-                    if ($tableID) {
-                        $row["TableID"] = $tableID;
+                    if ($tableActivator) {
+                        $row[$tableSelector] = $tableActivator;
                     } 
                 
                     // Check if PnPID already exist
