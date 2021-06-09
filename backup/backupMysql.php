@@ -5,6 +5,6 @@
     
     echo "Start dump\n";
     exec("mysqldump --user=$user --password=$password --host=$host $dbname > $dumpfile");
-    echo "-- Dump completed -- ";
+    echo "-- Dump completed -- \n";
     echo $dumpfile;
 ?>
