@@ -1,4 +1,4 @@
 <?php
-    $backupList = scandir('/');
+    $backupList = scandir(getcwd());
     echo json_encode($backupList);
 ?>
