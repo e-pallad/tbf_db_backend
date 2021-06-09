@@ -1,3 +1,3 @@
 <?php
-    echo scandir('/');
+    print_r(scandir('/'));
 ?>
