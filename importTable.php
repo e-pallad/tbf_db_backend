@@ -58,9 +58,6 @@
                 // Remove row 3 & 4 from import
                 array_splice($importArray, 1, 2);
 
-                header('Content-Type: application/json');
-                header('Access-Control-Allow-Origin: *');
-
                 if (in_array("Typ", $importArray[0])) {
                     $importArray[0][0] = "Revit_ID";
                     $importArray[0][2] = "Revit_Type";
