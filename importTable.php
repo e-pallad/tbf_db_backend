@@ -22,6 +22,8 @@
     $targetFilePath = $targetDir . $fileName;
     $sourceFile = "./uploads/" . $fileName;
     $tableActivator = 1;
+    $updateCount = 0;
+    $insertCount = 0;
 
     function duplicateValues(&$item, $value) {
         $item = $item . "=VALUES(" . $item . ")";
@@ -125,6 +127,7 @@
                         }
                         // Do UPDATE and check response
                         if ($con->query($query)) {
+                            $updateCount++;
                             continue;
                         } else {
                             $statusMsg[] = "UPDATE failed!";
@@ -148,6 +151,7 @@
                         $query = "INSERT INTO `Gesamtdatenbank` ($cols) VALUES($values) ON DUPLICATE KEY UPDATE " . implode(",", $duplicates);
 
                         if ($con->query("INSERT INTO `Gesamtdatenbank` ($cols) VALUES($values) ON DUPLICATE KEY UPDATE " . implode(",", $duplicates))) {
+                            $insertCount++;
                             continue;
                         } else {
                             $statusMsg[] = "INSERT failed!";
@@ -178,7 +182,7 @@
                     }
                 }
             }
-            $statusMsg[] = $con->info;
+            $statusMsg[] = $insertCount . " neue Zeilen hinzugefügt und " . $updateCount . " Zeilen überschrieben";
             if (mysqli_warning_count($con)) {
                 $e = mysqli_get_warnings($con);
                 do {
