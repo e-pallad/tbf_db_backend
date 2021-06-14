@@ -80,6 +80,9 @@
             }
             
             foreach ($rows as $row) {
+                if (array_keys($row)[count($row) - 1] == null || empty(array_keys($row)[count($row) - 1])) {
+                    array_pop($row);
+                }
                 if (isset($row["PnPID"])) {
                     if (isset($row["TBF_ID"])) {
                         unset($row["TBF_ID"]);
@@ -87,10 +90,6 @@
                     if ($tableActivator) {
                         $row[$tableSelector] = $tableActivator;
                     } 
-
-                    if (array_keys($row)[count($row) - 1] == null || empty(array_keys($row)[count($row) - 1])) {
-                        array_pop($row);
-                    }
                 
                     // Check if PnPID already exist
                     $check = $con->query("SELECT `PnPID` FROM `Gesamtdatenbank` WHERE `PnPID` = '" . $row['PnPID'] . "'");
@@ -137,16 +136,9 @@
                         }
                     } else {
                         // If PnPID doesnt exist perform default INSERT
-                        if (array_keys($row)[count($row) - 1] == null || empty(array_keys($row)[count($row) - 1])) {
-                            array_pop($row);
-                            $cols = "`" . implode("`,`", array_keys($row)) . "`";
-                            $values = "'" . implode("','", array_values($row)) . "'";
-                        } else {
-                            $cols = "`" . implode("`,`", array_keys($row)) . "`";
-                            $values = "'" . implode("','", array_values($row)) . "'";
-                        }
-                        
-                        
+                        $cols = "`" . implode("`,`", array_keys($row)) . "`";
+                        $values = "'" . implode("','", array_values($row)) . "'";
+
                         (array_values($row) == "True") ? 1 : 2;
                         $values = str_replace("''", "NULL", $values);
 
