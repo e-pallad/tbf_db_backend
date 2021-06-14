@@ -182,7 +182,7 @@
                     }
                 }
             }
-            $statusMsg[] = $insertCount . " neue Zeilen hinzugefügt und " . $updateCount . " Zeilen überschrieben";
+            $statusMsg[] = $insertCount . " neue Zeilen hinzugefügt und\n" . $updateCount . " Zeilen überschrieben";
             if (mysqli_warning_count($con)) {
                 $e = mysqli_get_warnings($con);
                 do {
