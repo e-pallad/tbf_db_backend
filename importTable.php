@@ -101,6 +101,7 @@
                                 continue;
                             }
                             if ($key === '') {
+                                $i++;
                                 continue;
                             } else {
                                 if ($value === '') {
