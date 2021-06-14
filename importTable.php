@@ -139,6 +139,8 @@
                         $duplicates = explode(",", $cols);
                         array_walk($duplicates, "duplicateValues");
 
+                        $query = "INSERT INTO `Gesamtdatenbank` ($cols) VALUES($values) ON DUPLICATE KEY UPDATE " . implode(",", $duplicates);
+
                         if ($con->query("INSERT INTO `Gesamtdatenbank` ($cols) VALUES($values) ON DUPLICATE KEY UPDATE " . implode(",", $duplicates))) {
                             continue;
                         } else {
