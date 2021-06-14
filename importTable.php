@@ -131,9 +131,17 @@
                         }
                     } else {
                         // If PnPID doesnt exist perform default INSERT
-                        $cols = "`" . implode("`,`", array_keys($row)) . "`";
-                        $values = "'" . implode("','", array_values($row)) . "'";
-                        (array_values($row) == "True") ? 1 : 2 ;
+                        if (array_keys($row)[count($row) - 1] == null || array_keys($row)[count($row) - 1] == '') {
+                            unset($row[count($row) - 1]);
+                            $cols = "`" . implode("`,`", array_keys($row)) . "`";
+                            $values = "'" . implode("','", array_values($row)) . "'";
+                        } else {
+                            $cols = "`" . implode("`,`", array_keys($row)) . "`";
+                            $values = "'" . implode("','", array_values($row)) . "'";
+                        }
+                        
+                        
+                        (array_values($row) == "True") ? 1 : 2;
                         $values = str_replace("''", "NULL", $values);
 
                         $duplicates = explode(",", $cols);
