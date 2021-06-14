@@ -122,6 +122,7 @@
                         }
                         // Do UPDATE and check response
                         if ($con->query($query)) {
+                            $statusMsg[] = $query;
                             continue;
                         } else {
                             $statusMsg[] = $con->info;
