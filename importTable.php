@@ -133,6 +133,8 @@
                         // If PnPID doesnt exist perform default INSERT
                         if (array_keys($row)[count($row) - 1] == null || empty(array_keys($row)[count($row) - 1])) {
                             unset($row[count($row) - 1]);
+                            $statusMsg[] = $row;
+                            
                             $cols = "`" . implode("`,`", array_keys($row)) . "`";
                             $values = "'" . implode("','", array_values($row)) . "'";
                         } else {
@@ -152,7 +154,7 @@
                         if ($con->query("INSERT INTO `Gesamtdatenbank` ($cols) VALUES($values) ON DUPLICATE KEY UPDATE " . implode(",", $duplicates))) {
                             continue;
                         } else {
-                            $statusMsg[] = var_dump($row);
+                            
                             $statusMsg[] = $query;
                             $statusMsg[] = $con->info;
                             $statusMsg[] = $con->error;
