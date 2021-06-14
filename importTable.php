@@ -99,20 +99,24 @@
                             if ($key == "PnPID") {
                                 $where = " WHERE `PnPID`=$value";
                                 continue;
-                            } 
-                            if ($value === '') {
-                                $query .= "`". $key . "` = NULL";
+                            }
+                            if ($key === '') {
+                                continue;
                             } else {
-                                if (preg_match('/([0-9]+.*),([0-9]{0,2})/', $value, $number)) {
-                                    $value = str_replace('.', '', $number[1]) . "." . $number[2];
+                                if ($value === '') {
+                                    $query .= "`". $key . "` = NULL";
+                                } else {
+                                    if (preg_match('/([0-9]+.*),([0-9]{0,2})/', $value, $number)) {
+                                        $value = str_replace('.', '', $number[1]) . "." . $number[2];
+                                    }
+                                    $query .= "`". $key . "`" . " = '" . $value . "'";
                                 }
-                                $query .= "`". $key . "`" . " = '" . $value . "'";
+                                
+                                if ($i < count($row) - 2) {
+                                    $query.= ",";
+                                }
+                                $i++;
                             }
-                            
-                            if ($i < count($row) - 2) {
-                                $query.= ",";
-                            }
-                            $i++;
                         }
 
                         if ($where) {
@@ -124,7 +128,7 @@
                         if ($con->query($query)) {
                             continue;
                         } else {
-                            $statusMsg[] = "Update failed!";
+                            $statusMsg[] = "UPDATE failed!";
                             $statusMsg[] = $row;
                             $statusMsg[] = $query;
                             $statusMsg[] = $con->info;
@@ -154,6 +158,7 @@
                         if ($con->query("INSERT INTO `Gesamtdatenbank` ($cols) VALUES($values) ON DUPLICATE KEY UPDATE " . implode(",", $duplicates))) {
                             continue;
                         } else {
+                            $statusMsg[] = "INSERT failed!";
                             $statusMsg[] = $row;
                             $statusMsg[] = $query;
                             $statusMsg[] = $con->info;
