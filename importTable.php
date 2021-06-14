@@ -87,6 +87,10 @@
                     if ($tableActivator) {
                         $row[$tableSelector] = $tableActivator;
                     } 
+
+                    if (array_keys($row)[count($row) - 1] == null || empty(array_keys($row)[count($row) - 1])) {
+                        array_pop($row);
+                    }
                 
                     // Check if PnPID already exist
                     $check = $con->query("SELECT `PnPID` FROM `Gesamtdatenbank` WHERE `PnPID` = '" . $row['PnPID'] . "'");
@@ -99,25 +103,20 @@
                             if ($key == "PnPID") {
                                 $where = " WHERE `PnPID`=$value";
                                 continue;
-                            }
-                            if ($key === '') {
-                                $i++;
-                                continue;
+                            } 
+                            if ($value === '') {
+                                $query .= "`". $key . "` = NULL";
                             } else {
-                                if ($value === '') {
-                                    $query .= "`". $key . "` = NULL";
-                                } else {
-                                    if (preg_match('/([0-9]+.*),([0-9]{0,2})/', $value, $number)) {
-                                        $value = str_replace('.', '', $number[1]) . "." . $number[2];
-                                    }
-                                    $query .= "`". $key . "`" . " = '" . $value . "'";
+                                if (preg_match('/([0-9]+.*),([0-9]{0,2})/', $value, $number)) {
+                                    $value = str_replace('.', '', $number[1]) . "." . $number[2];
                                 }
-                                
-                                if ($i < count($row) - 2) {
-                                    $query.= ",";
-                                }
-                                $i++;
+                                $query .= "`". $key . "`" . " = '" . $value . "'";
                             }
+                            
+                            if ($i < count($row) - 2) {
+                                $query.= ",";
+                            }
+                            $i++;
                         }
 
                         if ($where) {
