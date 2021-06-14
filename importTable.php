@@ -124,7 +124,7 @@
                         if ($con->query($query)) {
                             continue;
                         } else {
-                            $statusMsg[] = $query;
+                            //$statusMsg[] = $query;
                             $statusMsg[] = $con->info;
                             $statusMsg[] = $con->error;
                             break;
@@ -142,6 +142,7 @@
                         if ($con->query("INSERT INTO `Gesamtdatenbank` ($cols) VALUES($values) ON DUPLICATE KEY UPDATE " . implode(",", $duplicates))) {
                             continue;
                         } else {
+                            $statusMsg[] = $query;
                             $statusMsg[] = $con->info;
                             $statusMsg[] = $con->error;
                             break;
