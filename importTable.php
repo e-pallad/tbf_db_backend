@@ -132,9 +132,9 @@
                     } else {
                         // If PnPID doesnt exist perform default INSERT
                         if (array_keys($row)[count($row) - 1] == null || empty(array_keys($row)[count($row) - 1])) {
-                            unset($row[count($row) - 1]);
+                            array_pop($row);
                             $statusMsg[] = $row;
-                            
+
                             $cols = "`" . implode("`,`", array_keys($row)) . "`";
                             $values = "'" . implode("','", array_values($row)) . "'";
                         } else {
