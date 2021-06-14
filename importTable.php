@@ -189,7 +189,6 @@
                     $statusMsg[] = "Warning: $e->errno: $e->message";
                 } while ($e->next());
             }
-            $statusMsg[] = $con->affected_rows . " Zeilen importiert";
         } else {
             $statusMsg[] = "Datei konnte nicht gelesen werden";
             $statusMsg[] = SimpleXLSX::parseError();
