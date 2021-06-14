@@ -9,7 +9,7 @@
 
     $method = $_SERVER['REQUEST_METHOD'];
 
-    $query = "SELECT CONCAT_WS(' . ', `AKZ_Gr1_Standort`, `AKZ_Gr2_Anlagenteil`, `AKZ_Gr3_Aggregat`, `AKZ_Gr4_Nummer`) AS `AKZ Kodierung`, `Funktion_Stoff`, `Funktion_Cod.`, CONCAT(`Funktion_Signal_High`, ', ', `Funktion_Signal_Low`) AS `Funktion_Signal`, `Schaltanlage`, `Messbereich`, `Ausgangssignal`, `Spannungsversorgung`, `Messverfahren`, `Anzahl der Grenzkontakte`, `Selbstüberwachung + Störmeldekontakt`, `Sicherungsautomat`, `NH-Trenner`, `Überspannungsschutz`, `FI-Schutzschalter`, `Wartungsschalter`, `Vor-Ort-Anzeige`, `Anzeige Schaltschrank`, `Anzeige Bedientafel`, `Anzeige im PLS`, `Erneuern VO`, `Erneuern EMSR`, `Schutzart`, `Ex-Schutz`, `zu Bearbeiten`, `Zusatzgeräte/Bemerkungen`, `Zustand/Bearbeitung`, `Benennung` FROM `Gesamtdatenbank` WHERE `AKZ_Gr4_Nummer` > 0 AND `TableID` = 3";
+    $query = "SELECT CONCAT_WS(' . ', `AKZ_Gr1_Standort`, `AKZ_Gr2_Anlagenteil`, `AKZ_Gr3_Aggregat`, `AKZ_Gr4_Nummer`) AS `AKZ Kodierung`, `Funktion_Stoff`, `Funktion_Cod.`, CONCAT(`Funktion_Signal_High`, ', ', `Funktion_Signal_Low`) AS `Funktion_Signal`, `Schaltanlage`, `Messbereich`, `Ausgangssignal`, `Spannungsversorgung`, `Messverfahren`, `Anzahl der Grenzkontakte`, `Selbstüberwachung + Störmeldekontakt`, `Sicherungsautomat`, `NH-Trenner`, `Überspannungsschutz`, `FI-Schutzschalter`, `Wartungsschalter`, `Vor-Ort-Anzeige`, `Anzeige Schaltschrank`, `Anzeige Bedientafel`, `Anzeige im PLS`, `Erneuern VO`, `Erneuern EMSR`, `Schutzart`, `Ex-Schutz`, `zu Bearbeiten`, `Zusatzgeräte/Bemerkungen`, `Zustand/Bearbeitung`, `Benennung` FROM `Gesamtdatenbank` WHERE `AKZ_Gr4_Nummer` > 0 AND `MES` = 1";
     
     $data = mysqli_fetch_all($con->query($query));
 

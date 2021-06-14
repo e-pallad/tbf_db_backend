@@ -9,7 +9,7 @@
 
     $method = $_SERVER['REQUEST_METHOD'];
 
-    $query = "SELECT CONCAT_WS(' . ',`AKZ_Gr1_Standort`,`AKZ_Gr2_Anlagenteil`,`AKZ_Gr3_Aggregat`,`AKZ_Gr4_Nummer`) AS `AKZ Kodierung`, `Benennung`, `Benennung Zusatz`, `NW`, `PN`, `TBV/ITD Nr.`, `Einbauort bzw. Rohrleitungs Nr.`, `R&I EB68-Nr.`, `Feld-Nr.`, `Zchn. Rev. Nr.`, `Bemerkung`, `Zustand/Bearbeitung` FROM `Gesamtdatenbank` WHERE `AKZ_Gr4_Nummer` > 0 AND `TableID` = 2";
+    $query = "SELECT CONCAT_WS(' . ',`AKZ_Gr1_Standort`,`AKZ_Gr2_Anlagenteil`,`AKZ_Gr3_Aggregat`,`AKZ_Gr4_Nummer`) AS `AKZ Kodierung`, `Benennung`, `Benennung Zusatz`, `NW`, `PN`, `TBV/ITD Nr.`, `Einbauort bzw. Rohrleitungs Nr.`, `R&I EB68-Nr.`, `Feld-Nr.`, `Zchn. Rev. Nr.`, `Bemerkung`, `Zustand/Bearbeitung` FROM `Gesamtdatenbank` WHERE `AKZ_Gr4_Nummer` > 0 AND `ARM` = 1";
     /*
     $headerMultiQuery = "CREATE VIEW myview AS " . $query . "; DESCRIBE myview;";
     $header = mysqli_fetch_all($con->query("DESCRIBE ($query) AS `SEF_Armaturenliste`"));
