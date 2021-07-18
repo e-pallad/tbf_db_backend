@@ -6,5 +6,5 @@
     header('Access-Control-Allow-Origin: *');
     header('Content-Disposition: attachment; filename="SEF-EVerbraucherliste.pdf";');
 
-    json_encode($backupList);
+    echo json_encode($backupList);
 ?>
