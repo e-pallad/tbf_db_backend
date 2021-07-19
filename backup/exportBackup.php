@@ -14,7 +14,7 @@
                 header('Content-Disposition: attachment; filename="'.basename($file).'"');
                 header('Access-Control-Allow-Origin: *');
                 header('Content-Length: ' . filesize($file));
-                readfile('./' + $file);
+                readfile($file);
                 exit;
             } else {
                 echo http_response_code(403);
