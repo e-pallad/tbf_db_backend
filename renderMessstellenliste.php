@@ -14,10 +14,12 @@
     $data = mysqli_fetch_all($con->query($query));
 
     function trueFalseFix($value) {
-        if ($value === True) {
+        if ($value === "True") {
             return "X";
-        } else {
+        } elseif($value === "False") {
             return "";
+        } else {
+            return $value;
         }
     };
 
@@ -275,15 +277,15 @@
                 $this->Cell(6,6,$row[7],1,0,'C');
                 $this->Cell(30,6,$row[8],1,0,'C');
                 $this->Cell(6,6,$row[9],1,0,'C');
-                $this->Cell(6,6,$row[10],1,0,'C');
+                $this->Cell(6,6,trueFalseFix($row[10]),1,0,'C');
                 $this->Cell(3,6,$row[11],1,0,'C');
 
                 $this->Cell(3,6,trueFalseFix($row[12]),1,0,'C');
                 $this->Cell(3,6,trueFalseFix($row[13]),1,0,'C');
-                $this->Cell(3,6,$row[14],1,0,'C');
-                $this->Cell(3,6,$row[15],1,0,'C');
-                $this->Cell(3,6,$row[16],1,0,'C');
-                $this->Cell(3,6,$row[17],1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[14]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[15]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[16]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[17]),1,0,'C');
                 $this->Cell(3,6,$row[18],1,0,'C');
                 $this->Cell(3,6,$row[19],1,0,'C');
                 $this->Cell(3,6,$row[20],1,0,'C');
