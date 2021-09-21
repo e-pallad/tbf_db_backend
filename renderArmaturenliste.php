@@ -82,7 +82,7 @@
                 if (strlen($row[1]) > 27) {
                     $x=$this->GetX();
                     $y=$this->GetY();
-                    $this->Rect($x, $y, 35, 5);
+                    $this->Rect($x, $y, 35, 6);
                     $this->MultiCell(35,2.5,utf8_decode($row[1]),0,'L');
                     $this->SetXY($x+35,$y);
                 } else {
@@ -91,7 +91,7 @@
                 if (strlen($row[2]) > 25) {
                     $x=$this->GetX();
                     $y=$this->GetY();
-                    $this->Rect($x, $y, 35, 5);
+                    $this->Rect($x, $y, 35, 6);
                     $this->MultiCell(35,2.5,utf8_decode($row[2]),0,'L');
                     $this->SetXY($x+35,$y);
                 } else {
@@ -107,7 +107,7 @@
                 if (strlen($row[10]) > 25) {
                     $x=$this->GetX();
                     $y=$this->GetY();
-                    $this->Rect($x, $y, 25.5, 5);
+                    $this->Rect($x, $y, 25.5, 6);
                     $this->MultiCell(25.5,2.5,utf8_decode($row[10]),0,'L');
                     $this->SetXY($x+25.5,$y);
                 } else {
