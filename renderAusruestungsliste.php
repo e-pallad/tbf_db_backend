@@ -48,19 +48,19 @@
                 if ($col == "AKZ Kodierung" || $col == "Benennung" || $col == "Benennung Zusatz") {
                     $this->Cell(35,8,$col,1,0,'C');
                 } elseif ($col == "Kenndaten 1" || $col == "Kenndaten 2" || $col == "Kenndaten 3" || $col == "Kenndaten 4") {
-                    $this->Cell(18,8,$col,1,0,'C');
+                    $this->Cell(17,8,$col,1,0,'C');
                 } elseif ($col == "R&I EB68-Nr.") {
                     $x=$this->GetX();
                     $y=$this->GetY();
                     $this->Rect($x, $y, 18, 8);
-                    $this->MultiCell(18,4,$col,0,'C');
-                    $this->SetXY($x+18,$y);
+                    $this->MultiCell(17,4,$col,0,'C');
+                    $this->SetXY($x+17,$y);
                 } elseif ($col == "TBV/ITD Nr." || $col == "Feld-Nr.") {
                     $x=$this->GetX();
                     $y=$this->GetY();
-                    $this->Rect($x, $y, 10, 8);
-                    $this->MultiCell(10,4,$col,0,'C');
-                    $this->SetXY($x+10,$y);
+                    $this->Rect($x, $y, 9, 8);
+                    $this->MultiCell(9,4,$col,0,'C');
+                    $this->SetXY($x+9,$y);
                 } elseif ($col == "Einbauort bzw. Rohrleitungs Nr.") {
                     $x=$this->GetX();
                     $y=$this->GetY();
