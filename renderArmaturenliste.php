@@ -100,10 +100,10 @@
                 $this->Cell(12,6,utf8_decode($row[3]),1);
                 $this->Cell(12,6,utf8_decode($row[4]),1);
                 $this->Cell(18,6,utf8_decode($row[5]),1);
-                $this->Cell(25.6,5,utf8_decode($row[6]),1);
-                $this->Cell(25.6,5,utf8_decode($row[7]),1);
+                $this->Cell(25.6,6,utf8_decode($row[6]),1);
+                $this->Cell(25.6,6,utf8_decode($row[7]),1);
                 $this->Cell(12,6,utf8_decode($row[8]),1);
-                $this->Cell(25.6,5,utf8_decode($row[9]),1);
+                $this->Cell(25.6,6,utf8_decode($row[9]),1);
                 if (strlen($row[10]) > 25) {
                     $x=$this->GetX();
                     $y=$this->GetY();
