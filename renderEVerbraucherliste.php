@@ -624,7 +624,7 @@
 
             $x=$this->GetX();
             $y=$this->GetY();
-            $this->MultiCell(35,5,'E-Verbraucherliste Gewerk VA',0,'C');
+            $this->MultiCell(45,5,'E-Verbraucherliste Gewerk VA',0,'C');
             $this->SetXY($x+30,$y);
             $this->Ln(3);
 
