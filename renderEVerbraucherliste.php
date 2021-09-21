@@ -13,6 +13,16 @@
     
     $data = mysqli_fetch_all($con->query($query));
 
+    function trueFalseFix($value) {
+        if ($value === "True") {
+            return "X";
+        } elseif($value === "False") {
+            return "";
+        } else {
+            return $value;
+        }
+    };
+
     class PDF extends RPDF {
         // Page header
         function Header() {
@@ -34,7 +44,7 @@
             $this->TextWithDirection($x+2,$y+23,'Lfd. Nr.','U');
             $this->SetXY($x+3,$y);
 
-            $this->Cell(19,25,'AKZ Kodierung',1,0,'C',1);
+            $this->Cell(15,25,'AKZ Kodierung',1,0,'C',1);
 
             $x=$this->GetX();
             $y=$this->GetY();
@@ -545,41 +555,41 @@
                 $this->Cell(12,6,$row[10],1,0,'C');
                 $this->Cell(6,6,$row[11],1,0,'C');
                 $this->Cell(3,6,$row[12],1,0,'C');
-                $this->Cell(3,6,$row[13],1,0,'C');
-                $this->Cell(3,6,$row[14],1,0,'C');
-                $this->Cell(3,6,$row[15],1,0,'C');
-                $this->Cell(3,6,$row[16],1,0,'C');
-                $this->Cell(3,6,$row[17],1,0,'C');
-                $this->Cell(3,6,$row[18],1,0,'C');
-                $this->Cell(3,6,$row[19],1,0,'C');
-                $this->Cell(3,6,$row[20],1,0,'C');
-                $this->Cell(3,6,$row[21],1,0,'C');
-                $this->Cell(3,6,$row[22],1,0,'C');
-                $this->Cell(3,6,$row[23],1,0,'C');
-                $this->Cell(3,6,$row[24],1,0,'C');
-                $this->Cell(3,6,$row[25],1,0,'C');
-                $this->Cell(3,6,$row[26],1,0,'C');
-                $this->Cell(3,6,$row[27],1,0,'C');
-                $this->Cell(3,6,$row[28],1,0,'C');
-                $this->Cell(3,6,$row[29],1,0,'C');
-                $this->Cell(3,6,$row[30],1,0,'C');
-                $this->Cell(3,6,$row[31],1,0,'C');
-                $this->Cell(3,6,$row[32],1,0,'C');
-                $this->Cell(3,6,$row[33],1,0,'C');
-                $this->Cell(3,6,$row[34],1,0,'C');
-                $this->Cell(3,6,$row[35],1,0,'C');
-                $this->Cell(3,6,$row[36],1,0,'C');
-                $this->Cell(3,6,$row[37],1,0,'C');
-                $this->Cell(3,6,$row[38],1,0,'C');
-                $this->Cell(3,6,$row[39],1,0,'C');
-                $this->Cell(3,6,$row[40],1,0,'C');
-                $this->Cell(3,6,$row[41],1,0,'C');
-                $this->Cell(3,6,$row[42],1,0,'C');
-                $this->Cell(3,6,$row[43],1,0,'C');
-                $this->Cell(3,6,$row[44],1,0,'C');
-                $this->Cell(3,6,$row[45],1,0,'C');
-                $this->Cell(3,6,$row[46],1,0,'C');
-                $this->Cell(6,6,$row[47],1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[13]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[14]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[15]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[16]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[17]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[18]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[19]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[20]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[21]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[22]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[23]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[24]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[25]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[26]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[27]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[28]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[29]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[30]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[31]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[32]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[33]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[34]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[35]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[36]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[37]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[38]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[39]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[40]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[41]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[42]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[43]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[44]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[45]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[46]),1,0,'C');
+                $this->Cell(6,6,trueFalseFix($row[47]),1,0,'C');
                 $this->Cell(3,6,$row[48],1,0,'C');
                 $this->Cell(3,6,$row[49],1,0,'C');
                 $this->Cell(3,6,$row[50],1,0,'C');
@@ -614,7 +624,7 @@
 
             $x=$this->GetX();
             $y=$this->GetY();
-            $this->MultiCell(30,5,'E-Verbraucherliste Gewerk VA',0,'C');
+            $this->MultiCell(35,5,'E-Verbraucherliste Gewerk VA',0,'C');
             $this->SetXY($x+30,$y);
             $this->Ln(3);
 
