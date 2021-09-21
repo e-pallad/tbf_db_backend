@@ -13,6 +13,14 @@
     
     $data = mysqli_fetch_all($con->query($query));
 
+    function trueFalseFix($value) {
+        if ($value === True) {
+            return "X";
+        } else {
+            return "";
+        }
+    };
+
     class PDF extends RPDF {
         // Page header
         function Header() {
@@ -269,8 +277,9 @@
                 $this->Cell(6,6,$row[9],1,0,'C');
                 $this->Cell(6,6,$row[10],1,0,'C');
                 $this->Cell(3,6,$row[11],1,0,'C');
-                $this->Cell(3,6,$row[12],1,0,'C');
-                $this->Cell(3,6,$row[13],1,0,'C');
+
+                $this->Cell(3,6,trueFalseFix($row[12]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[13]),1,0,'C');
                 $this->Cell(3,6,$row[14],1,0,'C');
                 $this->Cell(3,6,$row[15],1,0,'C');
                 $this->Cell(3,6,$row[16],1,0,'C');
