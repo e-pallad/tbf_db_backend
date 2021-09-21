@@ -38,7 +38,7 @@
             $this->Ln(10);
             $this->SetFont('Arial','B',14);
             $this->Cell(105,16,'',1);
-            $this->Cell(105,16,'Ausrüstungsliste',1,0,'C');
+            $this->Cell(105,16,utf8_decode('Ausrüstungsliste'),1,0,'C');
             $this->Cell(51,16,'',1);
             $this->Cell(14,16,'',1);
             $this->Ln();
@@ -47,18 +47,16 @@
                 $this->SetFont('Arial','B',8);
                 if ($col == "AKZ Kodierung" || $col == "Benennung" || $col == "Benennung Zusatz") {
                     $this->Cell(35,10,$col,1,0,'C');
-                } elseif ($col == "Kenndaten 1" || $col == "Kenndaten 2" || $col == "Kenndaten 3" || $col == "Kenndaten 4") {
+                } elseif ($col == "Kenndaten 1" || $col == "Kenndaten 2" || $col == "Kenndaten 3" || $col == "Kenndaten 4" || $col == "R&I EB68-Nr.") {
                     $this->Cell(12,10,$col,1,0,'C');
-                } elseif ($col == "TBV/ITD Nr.") {
-                    $this->Cell(18,10,$col,1,0,'C');
+                } elseif ($col == "TBV/ITD Nr." || $col == "Feld-Nr.") {
+                    $this->Cell(8,10,$col,1,0,'C');
                 } elseif ($col == "Einbauort bzw. Rohrleitungs Nr.") {
                     $x=$this->GetX();
                     $y=$this->GetY();
                     $this->Rect($x, $y, 25.5, 10);
                     $this->MultiCell(25.5,5,$col,0,'C');
                     $this->SetXY($x+25.5,$y);
-                } elseif ($col == "R&I EB68-Nr.") {
-                    $this->Cell(25.5,10,$col,1,0,'C');
                 } elseif ($col == "Zchn. Rev. Nr." || $col == "Bemerkung") {
                     $this->Cell(25.5,10,$col,1,0,'C');
                 } elseif ($col == "Zustand/Bearbeitung") {
