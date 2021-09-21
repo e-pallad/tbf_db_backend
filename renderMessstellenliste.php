@@ -278,21 +278,20 @@
                 $this->Cell(30,6,$row[8],1,0,'C');
                 $this->Cell(6,6,$row[9],1,0,'C');
                 $this->Cell(6,6,trueFalseFix($row[10]),1,0,'C');
-                $this->Cell(3,6,$row[11],1,0,'C');
-
+                $this->Cell(3,6,trueFalseFix($row[11]),1,0,'C');
                 $this->Cell(3,6,trueFalseFix($row[12]),1,0,'C');
                 $this->Cell(3,6,trueFalseFix($row[13]),1,0,'C');
                 $this->Cell(3,6,trueFalseFix($row[14]),1,0,'C');
                 $this->Cell(3,6,trueFalseFix($row[15]),1,0,'C');
                 $this->Cell(3,6,trueFalseFix($row[16]),1,0,'C');
                 $this->Cell(3,6,trueFalseFix($row[17]),1,0,'C');
-                $this->Cell(3,6,$row[18],1,0,'C');
-                $this->Cell(3,6,$row[19],1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[18]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[19]),1,0,'C');
                 $this->Cell(3,6,$row[20],1,0,'C');
                 $this->Cell(3,6,$row[21],1,0,'C');
                 $this->Cell(6,6,$row[22],1,0,'C');
-                $this->Cell(3,6,$row[23],1,0,'C');
-                $this->Cell(3,6,$row[24],1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[23]),1,0,'C');
+                $this->Cell(3,6,trueFalseFix($row[24]),1,0,'C');
                 $this->Cell(30,6,$row[25],1,0,'C');
                 $this->Cell(20,6,$row[26],1,0,'C');
               
