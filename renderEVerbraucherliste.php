@@ -393,7 +393,7 @@
 
             $this->SetTextColor(75,135,190);
             $this->Cell(3,3,'','LR',0,'C');
-            $this->Cell(19,3,'1','LR',0,'C');
+            $this->Cell(15,3,'1','LR',0,'C');
             $this->Cell(3,3,'2','LR',0,'C');
             $this->Cell(3,3,'3','LR',0,'C');
             $this->Cell(3,3,'4','LR',0,'C');
@@ -454,7 +454,7 @@
             $this->Ln();
 
             $this->Cell(3,3,'','LR',0,'C');
-            $this->Cell(19,3,'','LR',0,'C');
+            $this->Cell(15,3,'','LR',0,'C');
             $this->Cell(3,3,'','LR',0,'C');
             $this->Cell(3,3,'','LR',0,'C');
             $this->Cell(3,3,'','LR',0,'C');
@@ -520,11 +520,11 @@
             $count = 1;
             foreach($data as $row) {
 
-                $this->SetFont('Arial','',5);
+                $this->SetFont('Arial','',4);
                 $this->SetTextColor(75,135,190);
                 $this->Cell(3,6,$count,1,0,'C');
                 $this->SetTextColor(0,0,0);
-                $this->Cell(19,6,$row[0],1,0,'C');
+                $this->Cell(15,6,$row[0],1,0,'C');
                 $this->Cell(3,6,$row[1],1,0,'C');
                 $this->Cell(3,6,$row[2],1,0,'C');
                 $this->SetTextColor(232,160,132);
