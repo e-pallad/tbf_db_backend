@@ -47,10 +47,20 @@
                 $this->SetFont('Arial','B',8);
                 if ($col == "AKZ Kodierung" || $col == "Benennung" || $col == "Benennung Zusatz") {
                     $this->Cell(35,10,$col,1,0,'C');
-                } elseif ($col == "Kenndaten 1" || $col == "Kenndaten 2" || $col == "Kenndaten 3" || $col == "Kenndaten 4" || $col == "R&I EB68-Nr.") {
+                } elseif ($col == "Kenndaten 1" || $col == "Kenndaten 2" || $col == "Kenndaten 3" || $col == "Kenndaten 4") {
                     $this->Cell(20,10,$col,1,0,'C');
+                } elseif ($col == "R&I EB68-Nr.") {
+                    $x=$this->GetX();
+                    $y=$this->GetY();
+                    $this->Rect($x, $y, 20, 10);
+                    $this->MultiCell(20,5,$col,0,'C');
+                    $this->SetXY($x+20,$y);
                 } elseif ($col == "TBV/ITD Nr." || $col == "Feld-Nr.") {
-                    $this->Cell(12,10,$col,1,0,'C');
+                    $x=$this->GetX();
+                    $y=$this->GetY();
+                    $this->Rect($x, $y, 10, 10);
+                    $this->MultiCell(10,5,$col,0,'C');
+                    $this->SetXY($x+10,$y);
                 } elseif ($col == "Einbauort bzw. Rohrleitungs Nr.") {
                     $x=$this->GetX();
                     $y=$this->GetY();
