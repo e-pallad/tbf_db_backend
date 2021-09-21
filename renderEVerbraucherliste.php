@@ -600,7 +600,7 @@
             $this->SetFont('Arial','',7.5);
             $this->SetTextColor(0,0,0);
             $this->Cell(8,10,'Datei: ',0,0,'L');
-            $this->Cell(30,10,'Dateiname?',0,0,'L');
+            $this->Cell(30,10,'SEF-EVerbraucherliste.pdf',0,0,'L');
             $this->Cell(78,10,'',0,0);
             $this->SetFont('Arial','',10.7);
             $this->Cell(101,10);
@@ -614,7 +614,7 @@
 
             $x=$this->GetX();
             $y=$this->GetY();
-            $this->MultiCell(30,5,'E-Verbraucherliste Gewerk SEVA',0,'C');
+            $this->MultiCell(30,5,'E-Verbraucherliste Gewerk VA',0,'C');
             $this->SetXY($x+30,$y);
             $this->Ln(3);
 
