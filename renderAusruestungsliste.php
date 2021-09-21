@@ -44,7 +44,7 @@
             $this->Ln();
 
             foreach($headerLine as $col) {
-                $this->SetFont('Arial','B',8);
+                $this->SetFont('Arial','B',7);
                 if ($col == "AKZ Kodierung" || $col == "Benennung" || $col == "Benennung Zusatz") {
                     $this->Cell(35,10,$col,1,0,'C');
                 } elseif ($col == "Kenndaten 1" || $col == "Kenndaten 2" || $col == "Kenndaten 3" || $col == "Kenndaten 4") {
