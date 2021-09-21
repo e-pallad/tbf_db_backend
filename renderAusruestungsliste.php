@@ -52,9 +52,9 @@
                 } elseif ($col == "R&I EB68-Nr.") {
                     $x=$this->GetX();
                     $y=$this->GetY();
-                    $this->Rect($x, $y, 20, 8);
-                    $this->MultiCell(20,4,$col,0,'C');
-                    $this->SetXY($x+20,$y);
+                    $this->Rect($x, $y, 18, 8);
+                    $this->MultiCell(18,4,$col,0,'C');
+                    $this->SetXY($x+18,$y);
                 } elseif ($col == "TBV/ITD Nr." || $col == "Feld-Nr.") {
                     $x=$this->GetX();
                     $y=$this->GetY();
