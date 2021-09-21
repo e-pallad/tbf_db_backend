@@ -83,7 +83,7 @@
                     $x=$this->GetX();
                     $y=$this->GetY();
                     $this->Rect($x, $y, 35, 6);
-                    $this->MultiCell(35,2,utf8_decode($row[1]),0,'L');
+                    $this->MultiCell(35,3,utf8_decode($row[1]),0,'L');
                     $this->SetXY($x+35,$y);
                 } else {
                     $this->Cell(35,6,utf8_decode($row[1]),1);
@@ -92,7 +92,7 @@
                     $x=$this->GetX();
                     $y=$this->GetY();
                     $this->Rect($x, $y, 35, 6);
-                    $this->MultiCell(35,2,utf8_decode($row[2]),0,'L');
+                    $this->MultiCell(35,3,utf8_decode($row[2]),0,'L');
                     $this->SetXY($x+35,$y);
                 } else {
                     $this->Cell(35,6,utf8_decode($row[2]),1);
@@ -108,7 +108,7 @@
                     $x=$this->GetX();
                     $y=$this->GetY();
                     $this->Rect($x, $y, 25.5, 6);
-                    $this->MultiCell(25.5,2,utf8_decode($row[10]),0,'L');
+                    $this->MultiCell(25.5,3,utf8_decode($row[10]),0,'L');
                     $this->SetXY($x+25.5,$y);
                 } else {
                     $this->Cell(25.5,6,utf8_decode($row[10]),1);
