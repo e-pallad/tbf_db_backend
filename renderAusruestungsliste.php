@@ -52,15 +52,15 @@
                 } elseif ($col == "R&I EB68-Nr.") {
                     $x=$this->GetX();
                     $y=$this->GetY();
-                    $this->Rect($x, $y, 18, 8);
+                    $this->Rect($x, $y, 17, 8);
                     $this->MultiCell(17,4,$col,0,'C');
                     $this->SetXY($x+17,$y);
                 } elseif ($col == "TBV/ITD Nr." || $col == "Feld-Nr.") {
                     $x=$this->GetX();
                     $y=$this->GetY();
-                    $this->Rect($x, $y, 9, 8);
-                    $this->MultiCell(9,4,$col,0,'C');
-                    $this->SetXY($x+9,$y);
+                    $this->Rect($x, $y, 10, 8);
+                    $this->MultiCell(10,4,$col,0,'C');
+                    $this->SetXY($x+10,$y);
                 } elseif ($col == "Einbauort bzw. Rohrleitungs Nr.") {
                     $x=$this->GetX();
                     $y=$this->GetY();
