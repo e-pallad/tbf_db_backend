@@ -43,6 +43,8 @@
         $tableSelector = 'SSL';
     } elseif ($table == 'RI-TBF_SEF_Revit_Liste') {
         $tableSelector = 'REV';
+    } elseif ($table == 'SEF_Ausrüstungsliste') {
+        $tableSelector = 'AUL';
     } else {
         $tableID = NULL;
     }

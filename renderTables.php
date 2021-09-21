@@ -30,6 +30,8 @@
         }
     } elseif ($table == 'RI-TBF_SEF_Stoffstromliste') {
         $query = "SELECT `PnPID`,`R&I EB68-Nr.`,`Feld-Nr.`,`Zchn. Rev. Nr.`,`Zustand/Bearbeitung`,`Bemerkung`,`AKZ_Gr1_Standort`,`AKZ_Gr2_Anlagenteil`,`AKZ_Gr3_Aggregat`,`AKZ_Gr4_Nummer`,`AKZ_Gr5_Aggregat`,`AKZ_Gr6_Nummer`,`Benennung`,`Benennung Zusatz`, `Hersteller`,`Typ`,`Volumenstrom min`,`Volumenstrom nom`,`Volumenstrom max`,`Dichte min`,`Dichte nom`,`Dichte max`,`Massenstrom min`,`Massenstrom nom`,`Massenstrom max`,`Druck min hPa_a`,`Druck nom hPa_a`,`Druck max hPa_a`,`Druck min Mpa_a`,`Druck nom Mpa_a`,`Druck max Mpa_a`,`Temperatur min`,`Temperatur nom`,`Temperatur max`,`Feststoffgehalt min`,`Feststoffgehalt nom`,`Feststoffgehalt max` FROM `Gesamtdatenbank` WHERE `SSL` = 1";
+    } elseif ($table == 'SEF_Ausrüstungsliste') {
+        $query = "SELECT `TBF_ID`, `AKZ_Gr1_Standort`,`AKZ_Gr2_Anlagenteil`,`AKZ_Gr3_Aggregat`,`AKZ_Gr4_Nummer`,`AKZ_Gr5_Aggregat`,`AKZ_Gr6_Nummer`,`Benennung` AS 'Bezeichnung', `Hersteller`, `Typ`, `Medium`, 'Nennleistung', 'Nennspannung', 'Fördervolumen', 'Drehzahl', 'max. zul. Druck', 'max. zul. Temperatur', 'Volumen', 'Fläche', 'Gewicht',`Werkstoff`,`Bauart`,`Zugehörige Sicherheitseinrichtung`, `Bemerkung` FROM `Gesamtdatenbank` WHERE `AUL` = 1";
     } elseif ($table == 'Verfahrenstechnikangaben') {
         $query = "SELECT `TBF_ID`,`AKZ_Gr1_Standort`,`AKZ_Gr2_Anlagenteil`,`AKZ_Gr3_Aggregat`,`AKZ_Gr4_Nummer`,`AKZ_Gr5_Aggregat`,`AKZ_Gr6_Nummer`,`Benennung`,`Benennung Zusatz`,`Hersteller`,`Typ`,`Medium`,`Fördervolumen`,`Drehzahl`,`max. zul. Druck`,`max. zul. Temperatur`,`Volumen`,`Fläche`,`Gewicht`,`Schallleistungspegel LWA`,`Werkstoff`,`Bauart`,`Zugehörige Sicherheitseinrichtung`,`Zustand/Bearbeitung`,`Bemerkung`,`Volumenstrom min`,`Volumenstrom nom`,`Volumenstrom max`,`Dichte min`,`Dichte nom`,`Dichte max`,`Massenstrom min`,`Massenstrom nom`,`Massenstrom max`,`Druck min hPa_a`,`Druck nom hPa_a`,`Druck max hPa_a`,`Druck min Mpa_a`,`Druck nom Mpa_a`,`Druck max Mpa_a`,`Temperatur min`,`Temperatur nom`,`Temperatur max`,`Feststoffgehalt min`,`Feststoffgehalt nom`,`Feststoffgehalt max` FROM `Gesamtdatenbank`";
     } elseif ($table == 'Masterliste') {
@@ -43,9 +45,9 @@
         $query = "SELECT `Revit_ID`,`FamilyAndType`,`Revit_Type` AS 'Type', `Benennung`, `R&I EB68-Nr.` AS 'Plannummer R+I', `AKZ_Gr1_Standort`,`AKZ_Gr2_Anlagenteil`,`AKZ_Gr3_Aggregat`,`AKZ_Gr4_Nummer`,`AKZ_Gr5_Aggregat`,`AKZ_Gr6_Nummer`,`Länge [m]` ,`Breite`,`Höhe`,`Radius`,`Ebene`,`TBF_ID` FROM `Gesamtdatenbank` WHERE `REV` = 1";
     } elseif ($table == 'RI-TBF_SEF_Rohrleitungsliste') {
         $query = "SELECT `TBF_ID`,`PnPID`,`AKZ_Gr1_Standort`,`AKZ_Gr2_Anlagenteil`,`AKZ_Gr3_Aggregat`,`AKZ_Gr4_Nummer`,`AKZ_Gr5_Aggregat`,`AKZ_Gr6_Nummer`,`Benennung`,`Benennung Zusatz`,`R&I EB68-Nr.`,`Feld-Nr.`,`Zchn. Rev. Nr.`,`Hersteller`,`Typ`,`Nennleistung`,`Werkstoff`,`Zustand/Bearbeitung`,`Bemerkung`,`DN`,`PN`,`Durchflussmenge`,`Einheit Df-Menge`,`Durchmesser`,`Wanddicke`,`Betriebsüberdruck`,`Berechnungsüberdruck`,`Betriebstemperatur`,`Berechnungstemperatur`,`Länge [m]` FROM `Gesamtdatenbank`";
-    } elseif ($table == 'RI-TBF_SEF_Stoffstromliste') {
+    } /*elseif ($table == 'RI-TBF_SEF_Stoffstromliste') {
         $query = "SELECT `TBF_ID`,`AKZ_Gr1_Standort`,`AKZ_Gr2_Anlagenteil`,`AKZ_Gr3_Aggregat`,`AKZ_Gr4_Nummer`,`AKZ_Gr5_Aggregat`,`AKZ_Gr6_Nummer`,`Benennung`,`Benennung Zusatz`,`R&I EB68-Nr.`,`Feld-Nr.`,`Zchn. Rev. Nr.`,`Hersteller`,`Typ`,`Zustand/Bearbeitung`,`Bemerkung`,`Volumenstrom min`,`Volumenstrom nom`,`Volumenstrom max`,`Dichte min`,`Dichte nom`,`Dichte max`,`Massenstrom min`,`Massenstrom nom`,`Massenstrom max`,`Druck min hPa_a`,`Druck nom hPa_a`,`Druck max hPa_a`,`Druck min Mpa_a`,`Druck nom Mpa_a`,`Druck max Mpa_a`,`Temperatur min`,`Temperatur nom`,`Temperatur max`,`Feststoffgehalt min`,`Feststoffgehalt nom`,`Feststoffgehalt max` FROM `Gesamtdatenbank`";
-    }
+    } */
 
 
     $header = mysqli_fetch_fields($con->query($query));
