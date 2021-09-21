@@ -77,7 +77,7 @@
         function BasicTable($data) {
 
             foreach($data as $row) {
-                $this->SetFont('Arial','',8);
+                $this->SetFont('Arial','',7.5);
                 $this->Cell(35,5,utf8_decode($row[0]),1);
                 if (strlen($row[1]) > 27) {
                     $x=$this->GetX();
