@@ -7,7 +7,7 @@
         case 'GET':
             header('Content-Type: application/json');
             header('Access-Control-Allow-Origin: *');
-            $listdbtables = mysqli_fetch_all($con->query('SELECT `Tabelle`, `Alias`, `Importieren`, `Bearbeiten`, `Auswerten`, `Export`, `Erzeugen` FROM `Tabellenzuordnung`'));
+            $listdbtables = mysqli_fetch_all($con->query('SELECT `Tabelle`, `Alias`, `Importieren`, `Bearbeiten`, /*`Auswerten`,*/ `Export`, `Erzeugen` FROM `Tabellenzuordnung`'));
             echo json_encode($listdbtables);
             break;
         default:
