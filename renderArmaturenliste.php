@@ -78,7 +78,7 @@
 
             foreach($data as $row) {
                 $this->SetFont('Arial','',7.5);
-                $this->Cell(35,5,utf8_decode($row[0]),1);
+                $this->Cell(35,6,utf8_decode($row[0]),1);
                 if (strlen($row[1]) > 27) {
                     $x=$this->GetX();
                     $y=$this->GetY();
@@ -86,7 +86,7 @@
                     $this->MultiCell(35,2.5,utf8_decode($row[1]),0,'L');
                     $this->SetXY($x+35,$y);
                 } else {
-                    $this->Cell(35,5,utf8_decode($row[1]),1);
+                    $this->Cell(35,6,utf8_decode($row[1]),1);
                 }
                 if (strlen($row[2]) > 25) {
                     $x=$this->GetX();
@@ -95,15 +95,15 @@
                     $this->MultiCell(35,2.5,utf8_decode($row[2]),0,'L');
                     $this->SetXY($x+35,$y);
                 } else {
-                    $this->Cell(35,5,utf8_decode($row[2]),1);
+                    $this->Cell(35,6,utf8_decode($row[2]),1);
                 }
-                $this->Cell(12,5,utf8_decode($row[3]),1);
-                $this->Cell(12,5,utf8_decode($row[4]),1);
-                $this->Cell(18,5,utf8_decode($row[5]),1);
-                $this->Cell(25.5,5,utf8_decode($row[6]),1);
-                $this->Cell(25.5,5,utf8_decode($row[7]),1);
-                $this->Cell(12,5,utf8_decode($row[8]),1);
-                $this->Cell(25.5,5,utf8_decode($row[9]),1);
+                $this->Cell(12,6,utf8_decode($row[3]),1);
+                $this->Cell(12,6,utf8_decode($row[4]),1);
+                $this->Cell(18,6,utf8_decode($row[5]),1);
+                $this->Cell(25.6,5,utf8_decode($row[6]),1);
+                $this->Cell(25.6,5,utf8_decode($row[7]),1);
+                $this->Cell(12,6,utf8_decode($row[8]),1);
+                $this->Cell(25.6,5,utf8_decode($row[9]),1);
                 if (strlen($row[10]) > 25) {
                     $x=$this->GetX();
                     $y=$this->GetY();
@@ -111,9 +111,9 @@
                     $this->MultiCell(25.5,2.5,utf8_decode($row[10]),0,'L');
                     $this->SetXY($x+25.5,$y);
                 } else {
-                    $this->Cell(25.5,5,utf8_decode($row[10]),1);
+                    $this->Cell(25.5,6,utf8_decode($row[10]),1);
                 }
-                $this->Cell(14,5,utf8_decode($row[11]),1);
+                $this->Cell(14,6,utf8_decode($row[11]),1);
                 
                 $this->Ln();
             }
