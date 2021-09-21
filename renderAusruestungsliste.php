@@ -46,33 +46,33 @@
             foreach($headerLine as $col) {
                 $this->SetFont('Arial','B',7);
                 if ($col == "AKZ Kodierung" || $col == "Benennung" || $col == "Benennung Zusatz") {
-                    $this->Cell(35,10,$col,1,0,'C');
+                    $this->Cell(35,8,$col,1,0,'C');
                 } elseif ($col == "Kenndaten 1" || $col == "Kenndaten 2" || $col == "Kenndaten 3" || $col == "Kenndaten 4") {
-                    $this->Cell(20,10,$col,1,0,'C');
+                    $this->Cell(18,8,$col,1,0,'C');
                 } elseif ($col == "R&I EB68-Nr.") {
                     $x=$this->GetX();
                     $y=$this->GetY();
-                    $this->Rect($x, $y, 20, 10);
-                    $this->MultiCell(20,5,$col,0,'C');
+                    $this->Rect($x, $y, 20, 8);
+                    $this->MultiCell(20,4,$col,0,'C');
                     $this->SetXY($x+20,$y);
                 } elseif ($col == "TBV/ITD Nr." || $col == "Feld-Nr.") {
                     $x=$this->GetX();
                     $y=$this->GetY();
-                    $this->Rect($x, $y, 10, 10);
-                    $this->MultiCell(10,5,$col,0,'C');
+                    $this->Rect($x, $y, 10, 8);
+                    $this->MultiCell(10,4,$col,0,'C');
                     $this->SetXY($x+10,$y);
                 } elseif ($col == "Einbauort bzw. Rohrleitungs Nr.") {
                     $x=$this->GetX();
                     $y=$this->GetY();
-                    $this->Rect($x, $y, 25.5, 10);
-                    $this->MultiCell(25.5,5,$col,0,'C');
+                    $this->Rect($x, $y, 25.5, 8);
+                    $this->MultiCell(25.5,4,$col,0,'C');
                     $this->SetXY($x+25.5,$y);
                 } elseif ($col == "Zchn. Rev. Nr." || $col == "Bemerkung") {
-                    $this->Cell(25.5,10,$col,1,0,'C');
+                    $this->Cell(25.5,8,$col,1,0,'C');
                 } elseif ($col == "Zustand/Bearbeitung") {
                     $this->MultiCell(14,3.3,$col,1,'C');
                 } else {
-                    $this->Cell(40,10,$col,1,0,'C');
+                    $this->Cell(40,8,$col,1,0,'C');
                 }
             }
         }
