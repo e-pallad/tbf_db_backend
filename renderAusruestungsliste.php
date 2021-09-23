@@ -106,13 +106,27 @@
                     $x=$this->GetX();
                     $y=$this->GetY();
                     $this->Rect($x, $y, 15, 8);
-                    $this->MultiCell(15,4,utf8_decode($row[2]),0,'L');
+                    $this->Cell(15,4,utf8_decode($row[2]),0,'L');
                     $this->SetXY($x+15,$y);
                 } else {
                     $this->Cell(15,8,utf8_decode($row[2]),1);
                 }
                 $this->Cell(15,8,utf8_decode($row[3]),1);
-                $this->Cell(15,8,utf8_decode($row[4]),1);
+                if (strlen($row[4]) > 15) {
+                    $x=$this->GetX();
+                    $y=$this->GetY();
+                    $this->Rect($x, $y, 25, 8);
+                    $this->SetFont('Arial','B',5);
+                    $this->Cell(15,4,utf8_decode($row[4]),0,'L');
+                    $this->SetFont('Arial','B',7);
+                    $this->SetXY($x+25,$y);
+                } elseif (strlen($row[4]) > 10) {
+                    $this->SetFont('Arial','B',5);
+                    $this->Cell(15,8,utf8_decode($row[4]),0,'L');
+                    $this->SetFont('Arial','B',7);
+                } else {
+                    $this->Cell(15,8,utf8_decode($row[4]),1);
+                }
                 $this->Cell(15,8,utf8_decode($row[5]),1);
                 $this->Cell(15,8,utf8_decode($row[6]),1);
                 $this->Cell(15,8,utf8_decode($row[7]),1);
