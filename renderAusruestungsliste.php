@@ -66,7 +66,7 @@
                     $this->MultiCell(15,5,utf8_decode($col),1,'C');
                     $this->SetXY($x+15,$y);
                 } elseif ($col == "Bemerkung") {
-                    $this->MultiCell(15,10,$col,1,'C');
+                    $this->MultiCell(15,7.5,$col,1,'C');
                 } else {
                     $this->Cell(15,10,utf8_decode($col),1,0,'C');
                 }
@@ -106,13 +106,20 @@
                 if (strlen($row[10]) > 25) {
                     $x=$this->GetX();
                     $y=$this->GetY();
-                    $this->Rect($x, $y, 25.5, 6);
-                    $this->MultiCell(25.5,3,utf8_decode($row[10]),0,'L');
-                    $this->SetXY($x+25.5,$y);
+                    $this->Rect($x, $y, 15, 8);
+                    $this->MultiCell(15,4,utf8_decode($row[10]),0,'L');
+                    $this->SetXY($x+15,$y);
                 } else {
-                    $this->Cell(25.5,6,utf8_decode($row[10]),1);
+                    $this->Cell(15,8,utf8_decode($row[10]),1);
                 }
-                $this->Cell(14,6,utf8_decode($row[11]),1);
+                $this->Cell(15,8,utf8_decode($row[11]),1);
+                $this->Cell(15,8,utf8_decode($row[12]),1);
+                $this->Cell(15,8,utf8_decode($row[13]),1);
+                $this->Cell(15,8,utf8_decode($row[14]),1);
+                $this->Cell(15,8,utf8_decode($row[15]),1);
+                $this->Cell(15,8,utf8_decode($row[16]),1);
+                $this->Cell(15,8,utf8_decode($row[17]),1);
+                $this->Cell(15,8,utf8_decode($row[18]),1);
                 
                 $this->Ln();
             }
