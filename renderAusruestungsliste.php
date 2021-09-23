@@ -9,7 +9,7 @@
 
     $method = $_SERVER['REQUEST_METHOD'];
 
-    $query = "SELECT CONCAT_WS('.', `AKZ_Gr1_Standort`,`AKZ_Gr2_Anlagenteil`,`AKZ_Gr3_Aggregat`,`AKZ_Gr4_Nummer`,`AKZ_Gr5_Aggregat`,`AKZ_Gr6_Nummer`) AS `AKZ Kodierung`, `Benennung` AS 'Bezeichnung', `Hersteller`, `Typ`, `Medium`, 'Nennleistung', 'Nennspannung', 'Fördervolumen', 'Drehzahl', 'max. zul. Druck', 'max. zul. Temperatur', 'Volumen', 'Fläche', 'Gewicht',`Werkstoff`,`Bauart`,`Zugehörige Sicherheitseinrichtung`, `Bemerkung` FROM `Gesamtdatenbank`";
+    $query = "SELECT CONCAT_WS('.', `AKZ_Gr1_Standort`,`AKZ_Gr2_Anlagenteil`,`AKZ_Gr3_Aggregat`,`AKZ_Gr4_Nummer`,`AKZ_Gr5_Aggregat`,`AKZ_Gr6_Nummer`) AS `AKZ Kodierung`, `Benennung` AS 'Bezeichnung', `Hersteller`, `Typ`, `Medium`, `Nennleistung`, `Nennspannung`, `Fördervolumen`, `Drehzahl`, `max. zul. Druck`, `max. zul. Temperatur`, `Volumen`, `Fläche`, `Gewicht`, `Werkstoff`, `Bauart`, `Zugehörige Sicherheitseinrichtung`, `Bemerkung` FROM `Gesamtdatenbank`";
     
     $data = mysqli_fetch_all($con->query($query));
 
@@ -50,25 +50,25 @@
             foreach($headerLine as $col) {
                 $this->SetFont('Arial','B',7);
                 if ($col == "AKZ Kodierung" || $col == "Benennung") {
-                    $this->Cell(20,8,$col,1,0,'C');
+                    $this->Cell(20,10,$col,1,0,'C');
                 } elseif ($col == "Hersteller" || $col == "Typ" || $col == "Medium") {
-                    $this->Cell(15,8,$col,1,0,'C');
+                    $this->Cell(15,10,$col,1,0,'C');
                 } elseif ($col == "Zugehörige Sicherheitseinrichtung") {
                     $x=$this->GetX();
                     $y=$this->GetY();
-                    $this->Rect($x, $y, 17, 8);
-                    $this->MultiCell(17,4,utf8_decode($col),0,'C');
+                    $this->Rect($x, $y, 17, 10);
+                    $this->MultiCell(17,5,utf8_decode($col),0,'C');
                     $this->SetXY($x+17,$y);
                 } elseif ($col == "Nennleistung" || $col == "Nennspannung" || $col == "Fördervolumen" || $col == "Drehzahl" || $col == "max. zul. Druck" || $col == "max. zul. Temperatur") {
                     $x=$this->GetX();
                     $y=$this->GetY();
-                    $this->Rect($x, $y, 15, 8);
-                    $this->MultiCell(15,4,utf8_decode($col),1,'C');
+                    $this->Rect($x, $y, 15, 10);
+                    $this->MultiCell(15,5,utf8_decode($col),1,'C');
                     $this->SetXY($x+15,$y);
                 } elseif ($col == "Bemerkung") {
-                    $this->MultiCell(15,7.5,$col,1,'C');
+                    $this->MultiCell(15,10,$col,1,'C');
                 } else {
-                    $this->Cell(15,8,utf8_decode($col),1,0,'C');
+                    $this->Cell(15,10,utf8_decode($col),1,0,'C');
                 }
             }
         }
