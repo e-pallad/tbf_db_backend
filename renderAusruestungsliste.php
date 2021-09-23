@@ -70,7 +70,15 @@
                     $this->Rect($x, $y, 12, 10);
                     $this->MultiCell(12,5,utf8_decode($col),1,'C');
                     $this->SetXY($x+12,$y);
-                } elseif ($col == "max. zul. Temperatur" || $col == "max. zul. Druck") {
+                } elseif ($col == "max. zul. Druck") {
+                    $x=$this->GetX();
+                    $y=$this->GetY();
+                    $this->Rect($x, $y, 12, 10);
+                    $this->SetFont('Arial','B',5);
+                    $this->MultiCell(12,5,utf8_decode($col),1,'C');
+                    $this->SetFont('Arial','B',7);
+                    $this->SetXY($x+12,$y);
+                } elseif ($col == "max. zul. Temperatur") {
                     $x=$this->GetX();
                     $y=$this->GetY();
                     $this->Rect($x, $y, 15, 10);
