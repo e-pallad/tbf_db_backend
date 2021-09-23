@@ -57,12 +57,12 @@
                     $x=$this->GetX();
                     $y=$this->GetY();
                     $this->Rect($x, $y, 17, 8);
-                    $this->MultiCell(17,4,$col,0,'C');
+                    $this->MultiCell(17,4,utf8_decode($col),0,'C');
                     $this->SetXY($x+17,$y);
                 } elseif ($col == "Zchn. Rev. Nr." || $col == "Bemerkung") {
                     $this->Cell(25.5,8,$col,1,0,'C');
                 } elseif ($col == "Nennleistung" || $col == "Nennspannung" || $col == "Fördervolumen" || $col == "Drehzahl" || $col == "max. zul. Druck" || $col == "max. zul. Temperatur") {
-                    $this->MultiCell(10,3.3,$col,1,'C');
+                    $this->MultiCell(10,3.3,utf8_decode($col),1,'C');
                 } else {
                     $this->Cell(20,8,$col,1,0,'C');
                 }
@@ -118,7 +118,7 @@
             $this->SetY(-20);
             $this->SetFont('Arial','',7.5);
             $this->Cell(8,10,'Datei: ',0,0,'L');
-            $this->Cell(30,10,'SEF-Ausrüstungsliste.pdf',0,0,'L');
+            $this->Cell(30,10,utf8_decode('SEF-Ausrüstungsliste.pdf'),0,0,'L');
             $this->Cell(78,10,'',0,0);
             $this->SetFont('Arial','',10.7);
             $this->Cell(101,10);
@@ -132,7 +132,7 @@
 
             $x=$this->GetX();
             $y=$this->GetY();
-            $this->MultiCell(30,5,'Ausrüstungsliste Gewerk VA',0,'C');
+            $this->MultiCell(30,5,utf8_decode('Ausrüstungsliste Gewerk VA'),0,'C');
             $this->SetXY($x+30,$y);
             $this->Ln(3);
 
