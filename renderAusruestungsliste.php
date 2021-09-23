@@ -67,9 +67,9 @@
                 } elseif ($col == "Nennleistung" || $col == "Nennspannung" || $col == "Fördervolumen" || $col == "max. zul. Druck") {
                     $x=$this->GetX();
                     $y=$this->GetY();
-                    $this->Rect($x, $y, 15, 10);
-                    $this->MultiCell(15,5,utf8_decode($col),1,'C');
-                    $this->SetXY($x+15,$y);
+                    $this->Rect($x, $y, 12, 10);
+                    $this->MultiCell(12,5,utf8_decode($col),1,'C');
+                    $this->SetXY($x+12,$y);
                 } elseif ($col == "max. zul. Temperatur") {
                     $x=$this->GetX();
                     $y=$this->GetY();
@@ -115,23 +115,27 @@
                 if (strlen($row[4]) > 15) {
                     $x=$this->GetX();
                     $y=$this->GetY();
-                    $this->Rect($x, $y, 25, 8);
+                    $this->Rect($x, $y, 15, 8);
                     $this->SetFont('Arial','B',5);
                     $this->Cell(15,4,utf8_decode($row[4]),0,'L');
                     $this->SetFont('Arial','B',7);
-                    $this->SetXY($x+25,$y);
+                    $this->SetXY($x+15,$y);
                 } elseif (strlen($row[4]) > 10) {
+                    $x=$this->GetX();
+                    $y=$this->GetY();
+                    $this->Rect($x, $y, 15, 8);
                     $this->SetFont('Arial','B',5);
                     $this->Cell(15,8,utf8_decode($row[4]),0,'L');
                     $this->SetFont('Arial','B',7);
+                    $this->SetXY($x+15,$y);
                 } else {
                     $this->Cell(15,8,utf8_decode($row[4]),1);
                 }
-                $this->Cell(15,8,utf8_decode($row[5]),1);
-                $this->Cell(15,8,utf8_decode($row[6]),1);
-                $this->Cell(15,8,utf8_decode($row[7]),1);
+                $this->Cell(12,8,utf8_decode($row[5]),1);
+                $this->Cell(12,8,utf8_decode($row[6]),1);
+                $this->Cell(12,8,utf8_decode($row[7]),1);
                 $this->Cell(15,8,utf8_decode($row[8]),1);
-                $this->Cell(15,8,utf8_decode($row[9]),1);
+                $this->Cell(12,8,utf8_decode($row[9]),1);
                 if (strlen($row[10]) > 25) {
                     $x=$this->GetX();
                     $y=$this->GetY();
