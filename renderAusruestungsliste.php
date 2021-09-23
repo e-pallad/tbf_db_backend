@@ -64,13 +64,13 @@
                     $this->MultiCell(17,3.3,utf8_decode($col),0,'C');
                     $this->SetFont('Arial','B',7);
                     $this->SetXY($x+17,$y);
-                } elseif ($col == "Nennleistung" || $col == "Nennspannung" || $col == "Fördervolumen" || $col == "max. zul. Druck") {
+                } elseif ($col == "Nennleistung" || $col == "Nennspannung" || $col == "Fördervolumen") {
                     $x=$this->GetX();
                     $y=$this->GetY();
                     $this->Rect($x, $y, 12, 10);
                     $this->MultiCell(12,5,utf8_decode($col),1,'C');
                     $this->SetXY($x+12,$y);
-                } elseif ($col == "max. zul. Temperatur") {
+                } elseif ($col == "max. zul. Temperatur" || $col == "max. zul. Druck") {
                     $x=$this->GetX();
                     $y=$this->GetY();
                     $this->Rect($x, $y, 15, 10);
