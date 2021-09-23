@@ -95,10 +95,12 @@
                     $x=$this->GetX();
                     $y=$this->GetY();
                     $this->Rect($x, $y, 25, 8);
+                    $this->SetFont('Arial','B',5);
                     $this->MultiCell(25,4,utf8_decode($row[1]),0,'L');
+                    $this->SetFont('Arial','B',7);
                     $this->SetXY($x+25,$y);
                 } else {
-                    $this->Cell(20,8,utf8_decode($row[1]),1);
+                    $this->Cell(25,8,utf8_decode($row[1]),1);
                 }
                 if (strlen($row[2]) > 12) {
                     $x=$this->GetX();
