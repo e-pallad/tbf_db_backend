@@ -79,7 +79,7 @@
                     $this->SetFont('Arial','B',7);
                     $this->SetXY($x+15,$y);
                 } elseif ($col == "Bemerkung") {
-                    $this->MultiCell(15,7.5,$col,1,'C');
+                    $this->MultiCell(15,5,$col,1,'C');
                 } else {
                     $this->Cell(15,10,utf8_decode($col),1,0,'C');
                 }
@@ -140,7 +140,7 @@
                     $this->SetFont('Arial','',5);
                     $this->MultiCell(15,4,utf8_decode($row[17]),0,'L');
                     $this->SetFont('Arial','',7);
-                    $this->SetXY($x+15,$y+8);
+                    $this->SetXY($x+15,$y+4);
                 } else {
                     $this->Cell(15,8,utf8_decode($row[17]),1);
                 }
