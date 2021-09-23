@@ -9,24 +9,29 @@
 
     $method = $_SERVER['REQUEST_METHOD'];
 
-    $query = "SELECT `TBF_ID`, CONCAT_WS('.', `AKZ_Gr1_Standort`,`AKZ_Gr2_Anlagenteil`,`AKZ_Gr3_Aggregat`,`AKZ_Gr4_Nummer`,`AKZ_Gr5_Aggregat`,`AKZ_Gr6_Nummer`) AS `AKZ Kodierung`, `Benennung` AS 'Bezeichnung', `Hersteller`, `Typ`, `Medium`, 'Nennleistung', 'Nennspannung', 'Fördervolumen', 'Drehzahl', 'max. zul. Druck', 'max. zul. Temperatur', 'Volumen', 'Fläche', 'Gewicht',`Werkstoff`,`Bauart`,`Zugehörige Sicherheitseinrichtung`, `Bemerkung` FROM `Gesamtdatenbank` WHERE `AUL` = 1";
+    $query = "SELECT CONCAT_WS('.', `AKZ_Gr1_Standort`,`AKZ_Gr2_Anlagenteil`,`AKZ_Gr3_Aggregat`,`AKZ_Gr4_Nummer`,`AKZ_Gr5_Aggregat`,`AKZ_Gr6_Nummer`) AS `AKZ Kodierung`, `Benennung` AS 'Bezeichnung', `Hersteller`, `Typ`, `Medium`, 'Nennleistung', 'Nennspannung', 'Fördervolumen', 'Drehzahl', 'max. zul. Druck', 'max. zul. Temperatur', 'Volumen', 'Fläche', 'Gewicht',`Werkstoff`,`Bauart`,`Zugehörige Sicherheitseinrichtung`, `Bemerkung` FROM `Gesamtdatenbank`";
     
     $data = mysqli_fetch_all($con->query($query));
 
     $headerLine = array(
         "AKZ Kodierung",
         "Benennung",
-        "Benennung Zusatz",
-        "TBV/ITD Nr.",
-        "Kenndaten 1",
-        "Kenndaten 2",
-        "Kenndaten 3",
-        "Kenndaten 4",
-        "R&I EB68-Nr.",
-        "Feld-Nr.",
-        "Zchn. Rev. Nr.",
-        "Bemerkung",
-        "Zustand/Bearbeitung"
+        "Hersteller",
+        "Typ",
+        "Medium",
+        "Nennleistung",
+        "Nennspannung",
+        "Fördervolumen",
+        "Drehzahl",
+        "max. zul. Druck", 
+        "max. zul. Temperatur",
+        "Volumen",
+        "Fläche",
+        "Gewicht",
+        "Werkstoff",
+        "Bauart",
+        "Zugehörige Sicherheitseinrichtung", 
+        "Bemerkung"
     );
 
     class PDF extends FPDF {
@@ -39,40 +44,27 @@
             $this->SetFont('Arial','B',14);
             $this->Cell(105,16,'',1);
             $this->Cell(105,16,utf8_decode('Ausrüstungsliste'),1,0,'C');
-            $this->Cell(51,16,'',1);
-            $this->Cell(14,16,'',1);
+            $this->Cell(65,16,'',1);
             $this->Ln();
 
             foreach($headerLine as $col) {
                 $this->SetFont('Arial','B',7);
-                if ($col == "AKZ Kodierung" || $col == "Benennung" || $col == "Benennung Zusatz") {
+                if ($col == "AKZ Kodierung" || $col == "Benennung") {
                     $this->Cell(35,8,$col,1,0,'C');
-                } elseif ($col == "Kenndaten 1" || $col == "Kenndaten 2" || $col == "Kenndaten 3" || $col == "Kenndaten 4") {
-                    $this->Cell(17,8,$col,1,0,'C');
-                } elseif ($col == "R&I EB68-Nr.") {
+                } elseif ($col == "Hersteller" || $col == "Typ" || $col == "Medium" || $col == "Bemerkung") {
+                    $this->Cell(15,8,$col,1,0,'C');
+                } elseif ($col == "Zugehörige Sicherheitseinrichtung") {
                     $x=$this->GetX();
                     $y=$this->GetY();
                     $this->Rect($x, $y, 17, 8);
                     $this->MultiCell(17,4,$col,0,'C');
                     $this->SetXY($x+17,$y);
-                } elseif ($col == "TBV/ITD Nr." || $col == "Feld-Nr.") {
-                    $x=$this->GetX();
-                    $y=$this->GetY();
-                    $this->Rect($x, $y, 10, 8);
-                    $this->MultiCell(10,4,$col,0,'C');
-                    $this->SetXY($x+10,$y);
-                } elseif ($col == "Einbauort bzw. Rohrleitungs Nr.") {
-                    $x=$this->GetX();
-                    $y=$this->GetY();
-                    $this->Rect($x, $y, 25.5, 8);
-                    $this->MultiCell(25.5,4,$col,0,'C');
-                    $this->SetXY($x+25.5,$y);
                 } elseif ($col == "Zchn. Rev. Nr." || $col == "Bemerkung") {
                     $this->Cell(25.5,8,$col,1,0,'C');
-                } elseif ($col == "Zustand/Bearbeitung") {
-                    $this->MultiCell(14,3.3,$col,1,'C');
+                } elseif ($col == "Nennleistung" || $col == "Nennspannung" || $col == "Fördervolumen" || $col == "Drehzahl" || $col == "max. zul. Druck" || $col == "max. zul. Temperatur") {
+                    $this->MultiCell(10,3.3,$col,1,'C');
                 } else {
-                    $this->Cell(40,8,$col,1,0,'C');
+                    $this->Cell(20,8,$col,1,0,'C');
                 }
             }
         }
