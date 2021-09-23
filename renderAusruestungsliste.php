@@ -57,13 +57,23 @@
                     $x=$this->GetX();
                     $y=$this->GetY();
                     $this->Rect($x, $y, 17, 10);
+                    $this->SetFont('Arial','B',5);
                     $this->MultiCell(17,5,utf8_decode($col),0,'C');
+                    $this->SetFont('Arial','B',7);
                     $this->SetXY($x+17,$y);
-                } elseif ($col == "Nennleistung" || $col == "Nennspannung" || $col == "Fördervolumen" || $col == "Drehzahl" || $col == "max. zul. Druck" || $col == "max. zul. Temperatur") {
+                } elseif ($col == "Nennleistung" || $col == "Nennspannung" || $col == "Fördervolumen" || $col == "Drehzahl" || $col == "max. zul. Druck") {
                     $x=$this->GetX();
                     $y=$this->GetY();
                     $this->Rect($x, $y, 15, 10);
                     $this->MultiCell(15,5,utf8_decode($col),1,'C');
+                    $this->SetXY($x+15,$y);
+                } elseif ($col == "max. zul. Temperatur") {
+                    $x=$this->GetX();
+                    $y=$this->GetY();
+                    $this->Rect($x, $y, 15, 10);
+                    $this->SetFont('Arial','B',5);
+                    $this->MultiCell(15,5,utf8_decode($col),1,'C');
+                    $this->SetFont('Arial','B',7);
                     $this->SetXY($x+15,$y);
                 } elseif ($col == "Bemerkung") {
                     $this->MultiCell(15,7.5,$col,1,'C');
@@ -118,8 +128,7 @@
                 $this->Cell(15,8,utf8_decode($row[14]),1);
                 $this->Cell(15,8,utf8_decode($row[15]),1);
                 $this->Cell(15,8,utf8_decode($row[16]),1);
-                # $this->Cell(15,8,utf8_decode($row[17]),1);
-                # $this->Cell(15,8,utf8_decode($row[18]),1);
+                $this->Cell(15,8,utf8_decode($row[17]),1);
                 
                 $this->Ln();
             }
