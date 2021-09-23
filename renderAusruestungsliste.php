@@ -140,7 +140,7 @@
                     $this->SetFont('Arial','',5);
                     $this->MultiCell(15,4,utf8_decode($row[17]),0,'L');
                     $this->SetFont('Arial','',7);
-                    $this->SetXY($x+15,$y);
+                    $this->SetXY($x+15,$y+8);
                 } else {
                     $this->Cell(15,8,utf8_decode($row[17]),1);
                 }
