@@ -89,9 +89,9 @@
         function BasicTable($data) {
 
             foreach($data as $row) {
-                $this->SetFont('Arial','',7.5);
+                $this->SetFont('Arial','',7);
                 $this->Cell(20,8,utf8_decode($row[0]),1);
-                if (strlen($row[1]) > 18) {
+                if (strlen($row[1]) > 16) {
                     $x=$this->GetX();
                     $y=$this->GetY();
                     $this->Rect($x, $y, 25, 8);
@@ -130,9 +130,18 @@
                 $this->Cell(15,8,utf8_decode($row[13]),1);
                 $this->Cell(15,8,utf8_decode($row[14]),1);
                 $this->Cell(15,8,utf8_decode($row[15]),1);
-                $this->Cell(15,8,utf8_decode($row[16]),1);
-                $this->Cell(15,8,utf8_decode($row[17]),1);
-                
+                $this->Cell(17,8,utf8_decode($row[16]),1);
+                if (strlen($row[17]) > 10) {
+                    $x=$this->GetX();
+                    $y=$this->GetY();
+                    $this->Rect($x, $y, 15, 8);
+                    $this->SetFont('Arial','',5);
+                    $this->MultiCell(15,4,utf8_decode($row[17]),0,'L');
+                    $this->SetFont('Arial','',7);
+                    $this->SetXY($x+15,$y);
+                } else {
+                    $this->Cell(15,8,utf8_decode($row[17]),1);
+                }
                 $this->Ln();
             }
         }
