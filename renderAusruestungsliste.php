@@ -120,7 +120,7 @@
                     $this->Cell(15,8,utf8_decode($row[2]),1);
                 }
                 $this->Cell(15,8,utf8_decode($row[3]),1);
-                if (strlen($row[4]) > 15) {
+                if (strlen($row[4]) > 14) {
                     $x=$this->GetX();
                     $y=$this->GetY();
                     $this->Rect($x, $y, 15, 8);
