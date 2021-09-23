@@ -49,19 +49,22 @@
 
             foreach($headerLine as $col) {
                 $this->SetFont('Arial','B',7);
-                if ($col == "AKZ Kodierung" || $col == "Benennung") {
+                if ($col == "AKZ Kodierung") {
                     $this->Cell(20,10,$col,1,0,'C');
-                } elseif ($col == "Hersteller" || $col == "Typ" || $col == "Medium") {
+                } elseif ($col == "Benennung") {
+                    $this->Cell(25,10,$col,1,0,'C');
+                } elseif ($col == "Hersteller" || $col == "Typ" || $col == "Medium" || $col == "Drehzahl") {
                     $this->Cell(15,10,$col,1,0,'C');
                 } elseif ($col == "Zugehörige Sicherheitseinrichtung") {
+                    $col = "Zugehörige\nSicherheits-\neinrichtung";
                     $x=$this->GetX();
                     $y=$this->GetY();
                     $this->Rect($x, $y, 17, 10);
                     $this->SetFont('Arial','B',5);
-                    $this->MultiCell(17,5,utf8_decode($col),0,'C');
+                    $this->MultiCell(17,3.3,utf8_decode($col),0,'C');
                     $this->SetFont('Arial','B',7);
                     $this->SetXY($x+17,$y);
-                } elseif ($col == "Nennleistung" || $col == "Nennspannung" || $col == "Fördervolumen" || $col == "Drehzahl" || $col == "max. zul. Druck") {
+                } elseif ($col == "Nennleistung" || $col == "Nennspannung" || $col == "Fördervolumen" || $col == "max. zul. Druck") {
                     $x=$this->GetX();
                     $y=$this->GetY();
                     $this->Rect($x, $y, 15, 10);
@@ -91,9 +94,9 @@
                 if (strlen($row[1]) > 18) {
                     $x=$this->GetX();
                     $y=$this->GetY();
-                    $this->Rect($x, $y, 20, 8);
-                    $this->MultiCell(20,4,utf8_decode($row[1]),0,'L');
-                    $this->SetXY($x+20,$y);
+                    $this->Rect($x, $y, 25, 8);
+                    $this->MultiCell(25,4,utf8_decode($row[1]),0,'L');
+                    $this->SetXY($x+25,$y);
                 } else {
                     $this->Cell(20,8,utf8_decode($row[1]),1);
                 }
