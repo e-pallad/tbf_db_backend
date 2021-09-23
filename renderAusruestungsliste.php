@@ -51,7 +51,7 @@
                 $this->SetFont('Arial','B',7);
                 if ($col == "AKZ Kodierung" || $col == "Benennung") {
                     $this->Cell(20,8,$col,1,0,'C');
-                } elseif ($col == "Hersteller" || $col == "Typ" || $col == "Medium" || $col == "Bemerkung") {
+                } elseif ($col == "Hersteller" || $col == "Typ" || $col == "Medium") {
                     $this->Cell(15,8,$col,1,0,'C');
                 } elseif ($col == "Zugehörige Sicherheitseinrichtung") {
                     $x=$this->GetX();
@@ -59,14 +59,14 @@
                     $this->Rect($x, $y, 17, 8);
                     $this->MultiCell(17,4,utf8_decode($col),0,'C');
                     $this->SetXY($x+17,$y);
-                } elseif ($col == "Zchn. Rev. Nr." || $col == "Bemerkung") {
-                    $this->Cell(25.5,8,$col,1,0,'C');
                 } elseif ($col == "Nennleistung" || $col == "Nennspannung" || $col == "Fördervolumen" || $col == "Drehzahl" || $col == "max. zul. Druck" || $col == "max. zul. Temperatur") {
                     $x=$this->GetX();
                     $y=$this->GetY();
                     $this->Rect($x, $y, 15, 8);
                     $this->MultiCell(15,4,utf8_decode($col),1,'C');
                     $this->SetXY($x+15,$y);
+                } elseif ($col == "Bemerkung") {
+                    $this->MultiCell(15,7.5,$col,1,'C');
                 } else {
                     $this->Cell(15,8,utf8_decode($col),1,0,'C');
                 }
