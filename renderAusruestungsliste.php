@@ -118,8 +118,8 @@
                 $this->Cell(15,8,utf8_decode($row[14]),1);
                 $this->Cell(15,8,utf8_decode($row[15]),1);
                 $this->Cell(15,8,utf8_decode($row[16]),1);
-                $this->Cell(15,8,utf8_decode($row[17]),1);
-                $this->Cell(15,8,utf8_decode($row[18]),1);
+                # $this->Cell(15,8,utf8_decode($row[17]),1);
+                # $this->Cell(15,8,utf8_decode($row[18]),1);
                 
                 $this->Ln();
             }
