@@ -50,7 +50,7 @@
             foreach($headerLine as $col) {
                 $this->SetFont('Arial','B',7);
                 if ($col == "AKZ Kodierung" || $col == "Benennung") {
-                    $this->Cell(35,8,$col,1,0,'C');
+                    $this->Cell(20,8,$col,1,0,'C');
                 } elseif ($col == "Hersteller" || $col == "Typ" || $col == "Medium" || $col == "Bemerkung") {
                     $this->Cell(15,8,$col,1,0,'C');
                 } elseif ($col == "Zugehörige Sicherheitseinrichtung") {
@@ -62,9 +62,9 @@
                 } elseif ($col == "Zchn. Rev. Nr." || $col == "Bemerkung") {
                     $this->Cell(25.5,8,$col,1,0,'C');
                 } elseif ($col == "Nennleistung" || $col == "Nennspannung" || $col == "Fördervolumen" || $col == "Drehzahl" || $col == "max. zul. Druck" || $col == "max. zul. Temperatur") {
-                    $this->MultiCell(10,3.3,utf8_decode($col),1,'C');
+                    $this->MultiCell(15,3.3,utf8_decode($col),1,'C');
                 } else {
-                    $this->Cell(20,8,$col,1,0,'C');
+                    $this->Cell(15,8,$col,1,0,'C');
                 }
             }
         }
