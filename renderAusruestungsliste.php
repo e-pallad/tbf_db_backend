@@ -62,7 +62,11 @@
                 } elseif ($col == "Zchn. Rev. Nr." || $col == "Bemerkung") {
                     $this->Cell(25.5,8,$col,1,0,'C');
                 } elseif ($col == "Nennleistung" || $col == "Nennspannung" || $col == "Fördervolumen" || $col == "Drehzahl" || $col == "max. zul. Druck" || $col == "max. zul. Temperatur") {
-                    $this->MultiCell(15,3.3,utf8_decode($col),1,'C');
+                    $x=$this->GetX();
+                    $y=$this->GetY();
+                    $this->Rect($x, $y, 15, 8);
+                    $this->MultiCell(15,4,utf8_decode($col),1,'C');
+                    $this->SetXY($x+15,$y);
                 } else {
                     $this->Cell(15,8,$col,1,0,'C');
                 }
