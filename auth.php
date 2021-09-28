@@ -3,6 +3,8 @@
     require './connect.php';
 
     $method = $_SERVER['REQUEST_METHOD'];
+    header('Access-Control-Allow-Origin: https://tbf-db.ep-projekte.de');
+
     switch ($method) {
         case 'POST':
             $username = $_POST['username'];
