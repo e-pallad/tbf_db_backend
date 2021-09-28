@@ -3,6 +3,7 @@
     require './connect.php';
 
     $method = $_SERVER['REQUEST_METHOD'];
+    header('Access-Control-Allow-Origin: *');
 
     switch ($method) {
         case 'POST':
