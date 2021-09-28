@@ -6,7 +6,7 @@
     switch ($method) {
         case 'GET':
             header('Content-Type: application/json');
-            header('Access-Control-Allow-Origin: *');
+            header('Access-Control-Allow-Origin: https://tbf-db.ep-projekte.de/');
             $listdbtables = mysqli_fetch_all($con->query('SELECT `Tabelle`, `Alias`, `Importieren`, `Bearbeiten`, `Auswerten`, `Export`, `Erzeugen` FROM `Tabellenzuordnung`'));
             echo json_encode($listdbtables);
             break;
