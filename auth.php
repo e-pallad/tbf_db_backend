@@ -19,7 +19,7 @@
                 ];
                 $userData = mysqli_fetch_array($con->query("SELECT * FROM `Benutzer` WHERE `username` = '" . $username . "'"));
                 if (password_verify($password, $userData['password'])) {
-                    header("Access-Control-Allow-Origin: https://tbf-db.ep-projekte.de");
+                    header("Access-Control-Allow-Origin: https://tbf-db.ep-projekte.de/login");
                     echo json_encode(bin2hex(random_bytes(20)));
                     break;
                 } else {
