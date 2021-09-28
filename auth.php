@@ -3,8 +3,6 @@
     require './connect.php';
 
     $method = $_SERVER['REQUEST_METHOD'];
-    header('Access-Control-Allow-Origin: * always');
-
     switch ($method) {
         case 'POST':
             $username = $_POST['username'];
