@@ -3,9 +3,15 @@
     require './connect.php';
 
     $method = $_SERVER['REQUEST_METHOD'];
-    header('Access-Control-Allow-Origin: *');
+    header('Access-Control-Allow-Origin: * always');
 
     switch ($method) {
+        case 'OPTIONS':
+            header("Access-Control-Allow-Origin: https://tbf-db.ep-projekte.de");
+            header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+            header("Access-Control-Allow-Headers: DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range");
+            header("Access-Control-Max-Age: 1728000");
+            echo http_response_code(204);
         case 'POST':
             $username = $_POST['username'];
             $password = $_POST['password'];
