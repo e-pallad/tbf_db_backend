@@ -96,6 +96,13 @@
                     if ($tableActivator) {
                         $row[$tableSelector] = $tableActivator;
                     } 
+
+                    // Removing col 'Leistung mit Gleichzeitigkeitsfaktor' from Verbraucherlsite import 
+                    if ($table === 'RI-TBF_SEF_Verbraucherliste') {
+                        if (isset($row["Leistung mit Gleichzeitigkeitsfaktor"])) {
+                            unset($row["Leistung mit Gleichzeitigkeitsfaktor"]);
+                        }
+                    }
                 
                     // Check if PnPID already exist
                     $check = $con->query("SELECT `PnPID` FROM `Gesamtdatenbank` WHERE `PnPID` = '" . $row['PnPID'] . "'");
