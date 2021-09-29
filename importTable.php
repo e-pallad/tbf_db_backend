@@ -45,8 +45,10 @@
         $tableSelector = 'REV';
     } elseif ($table == 'SEF_Ausrüstungsliste') {
         $tableSelector = 'AUL';
+    } elseif ($table == 'RI-TBF_SEF_Verbraucherliste') {
+        $tableSelector = 'VBL';
     } else {
-        $tableID = NULL;
+        $tableSelector = NULL;
     }
     
     if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)) {
