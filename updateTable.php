@@ -19,7 +19,7 @@
 
             if ($table == 'RI-TBF_SEF_Elektrokomponentenliste') {
                 $dataArray = json_decode($_POST['data'], 1);
-                $dataArray["TableID"] = 4;
+                $dataArray["EKL"] = 1;
                 // Check if TBF_ID already exist
                 $check = $con->query("SELECT `TBF_ID` FROM `Gesamtdatenbank` WHERE `TBF_ID` = '" . $dataArray['TBF_ID'] . "'");
                 // If not perform INSERT
