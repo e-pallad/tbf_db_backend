@@ -103,7 +103,12 @@
                     if (isset($row["Leistung mit Gleichzeitigkeitsfaktor"])) {
                         unset($row["Leistung mit Gleichzeitigkeitsfaktor"]);
                     }
-                    
+
+                    // Removing col 'Bezeichnung' and move content to 'Benennung'
+                    if (isset($row["Bezeichnung"])) {
+                        $row["Benennung"] = $row["Bezeichnung"];
+                        unset($row["Bezeichnung"]);
+                    }
                 
                     // Check if PnPID already exist
                     $check = $con->query("SELECT `PnPID` FROM `Gesamtdatenbank` WHERE `PnPID` = '" . $row['PnPID'] . "'");
