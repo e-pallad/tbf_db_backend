@@ -47,6 +47,8 @@
         $tableSelector = 'AUL';
     } elseif ($table == 'RI-TBF_SEF_Verbraucherliste' || 'SEF_E-Verbraucherliste') {
         $tableSelector = 'VBL';
+    } elseif ($table == 'RI-TBF_SEF_PlancalNova_Liste') {
+        $tableSelector = 'PLA';
     } else {
         $tableSelector = NULL;
     }
