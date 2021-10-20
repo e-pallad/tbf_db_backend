@@ -151,6 +151,7 @@
                         if ($con->query($query)) {
                             $updateCount++;
                             $statusMsg[] = $query;
+                            $statusMsg[] = $table;
                             continue;
                         } else {
                             $statusMsg[] = "UPDATE failed!";
