@@ -83,7 +83,7 @@
                     }
                     continue;
                 }
-                
+
                 if (!is_null($tableSelector)) {
                     array_unshift($r, $tableActivator);
                 }
@@ -150,6 +150,7 @@
                         // Do UPDATE and check response
                         if ($con->query($query)) {
                             $updateCount++;
+                            $statusMsg[] = $query;
                             continue;
                         } else {
                             $statusMsg[] = "UPDATE failed!";
