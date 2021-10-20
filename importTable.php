@@ -31,9 +31,9 @@
 
     if ($table == 'RI-TBF_SEF_Apparateliste') {
         $tableSelector = 'APP';
-    } elseif ($table == 'RI-TBF_SEF_Armaturenliste' || 'SEF_Armaturenliste') {
+    } elseif ($table == 'RI-TBF_SEF_Armaturenliste' || $table == 'SEF_Armaturenliste') {
         $tableSelector = 'ARM';
-    } elseif ($table == 'RI-TBF_SEF_Messstellenliste' || 'SEF_Messstellenliste') {
+    } elseif ($table == 'RI-TBF_SEF_Messstellenliste' || $table == 'SEF_Messstellenliste') {
         $tableSelector = 'MES';
     } elseif ($table == 'RI-TBF_SEF_Elektrokomponentenliste') {
         $tableSelector = 'EKL';
@@ -45,7 +45,7 @@
         $tableSelector = 'REV';
     } elseif ($table == 'SEF_Ausrüstungsliste') {
         $tableSelector = 'AUL';
-    } elseif ($table == 'RI-TBF_SEF_Verbraucherliste' || 'SEF_E-Verbraucherliste') {
+    } elseif ($table == 'RI-TBF_SEF_Verbraucherliste' || $table == 'SEF_E-Verbraucherliste') {
         $tableSelector = 'VBL';
     } elseif ($table == 'RI-TBF_SEF_PlancalNova_Liste') {
         $tableSelector = 'PLA';
