@@ -78,11 +78,16 @@
             foreach ($importArray as $k => $r) {
                 if ( $k === 0 ) {
                     $colNames = $r;
-                    array_unshift($colNames,$tableSelector);
+                    if (!is_null($tableSelector)) {
+                        array_unshift($colNames,$tableSelector);
+                    }
                     continue;
-                } 
-
-                array_unshift($r, $tableActivator); 
+                }
+                
+                if (!is_null($tableSelector)) {
+                    array_unshift($r, $tableActivator);
+                }
+                
 
                 $rows[] = array_combine( $colNames, $r );
             }
