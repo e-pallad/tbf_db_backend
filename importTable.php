@@ -150,8 +150,6 @@
                         // Do UPDATE and check response
                         if ($con->query($query)) {
                             $updateCount++;
-                            $statusMsg[] = $query;
-                            $statusMsg[] = $table;
                             continue;
                         } else {
                             $statusMsg[] = "UPDATE failed!";
