@@ -191,6 +191,12 @@
                         unset($row["Bezeichnung"]);
                     }
 
+                    // Removing col 'Zeichnung' and move content to 'R&I EB68-Nr.'
+                    if (isset($row["Zeichnung"])) {
+                        $row["R&I EB68-Nr."] = $row["Zeichnung"];
+                        unset($row["Zeichnung"]);
+                    }
+
                     $cols = "`" . implode("`,`", array_keys($row)) . "`";
                     $values = "'" . implode("','", array_values($row)) . "'";
                     (array_values($row) == "True") ? 1 : 2 ;
