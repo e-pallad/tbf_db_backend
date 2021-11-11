@@ -185,6 +185,12 @@
                         }
                     }
                 } else {
+                    // Removing col 'Bezeichnung' and move content to 'Benennung'
+                    if (isset($row["Bezeichnung"])) {
+                        $row["Benennung"] = $row["Bezeichnung"];
+                        unset($row["Bezeichnung"]);
+                    }
+
                     $cols = "`" . implode("`,`", array_keys($row)) . "`";
                     $values = "'" . implode("','", array_values($row)) . "'";
                     (array_values($row) == "True") ? 1 : 2 ;
@@ -193,11 +199,11 @@
                     $duplicates = explode(",", $cols);
                     array_walk($duplicates, "duplicateValues");
 
+
                     if ($con->query("INSERT INTO `Gesamtdatenbank` ($cols) VALUES($values) ON DUPLICATE KEY UPDATE " . implode(",", $duplicates))) {
                         continue;
                     } else {
                         $statusMsg[] = $row;
-                        $statusMsg[] = $query;
                         $statusMsg[] = $con->info;
                         $statusMsg[] = $con->error;
                         break;
