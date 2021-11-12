@@ -153,6 +153,11 @@
                         $row["Benennung"] = $row["Bezeichnung"];
                         unset($row["Bezeichnung"]);
                     }
+
+                    // Removing empty rows'
+                    if (isset($row[""])) {
+                        unset($row[""]);
+                    }
                 
                     // Check if PnPID already exist
                     $check = $con->query("SELECT `PnPID` FROM `Gesamtdatenbank` WHERE `PnPID` = '" . $row['PnPID'] . "'");
@@ -238,6 +243,11 @@
                             }
                         }
 
+                        // Removing empty rows'
+                        if (isset($row[""])) {
+                            unset($row[""]);
+                        }
+
                         // If PnPID doesnt exist perform default INSERT
                         $cols = "`" . implode("`,`", array_keys($row)) . "`";
                         $values = "'" . implode("','", array_values($row)) . "'";
@@ -317,6 +327,11 @@
                     // Removing col 'X'
                     if (isset($row["X"])) {
                         unset($row["X"]);
+                    }
+
+                    // Removing empty rows'
+                    if (isset($row[""])) {
+                        unset($row[""]);
                     }
 
                     $cols = "`" . implode("`,`", array_keys($row)) . "`";
