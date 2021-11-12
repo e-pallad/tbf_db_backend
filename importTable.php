@@ -213,7 +213,7 @@
                                 unset($row["Nach Aggregat, Armatur, Rohrltg., (AKZ)"]);
                             }
                         }
-                        
+
                         // If PnPID doesnt exist perform default INSERT
                         $cols = "`" . implode("`,`", array_keys($row)) . "`";
                         $values = "'" . implode("','", array_values($row)) . "'";
@@ -239,6 +239,33 @@
                         }
                     }
                 } else {
+                    // create special case for Rohrleitungsliste
+                    if ($table === 'RI-TBF_SEF_Rohrleitungsliste') {
+                        // Removing col 'Bezeichnung' and move content to 'RLL_Bezeichnung'
+                        if (isset($row["Bezeichnung"])) {
+                            $row["RLL_Bezeichnung"] = $row["Bezeichnung"];
+                            unset($row["Bezeichnung"]);
+                        }
+
+                        // Removing col 'Kurzbezeichnung' and move content to 'RLL_Kurzbezeichnung'
+                        if (isset($row["Kurzbezeichnung"])) {
+                            $row["RLL_Kurzbezeichnung"] = $row["Kurzbezeichnung"];
+                            unset($row["Kurzbezeichnung"]);
+                        }
+
+                        // Removing col 'Von Aggregat, Armatur, Rohrltg., (AKZ)' and move content to 'Von Aggregat'
+                        if (isset($row["Von Aggregat, Armatur, Rohrltg., (AKZ)"])) {
+                            $row["Von Aggregat"] = $row["Von Aggregat, Armatur, Rohrltg., (AKZ)"];
+                            unset($row["Von Aggregat, Armatur, Rohrltg., (AKZ)"]);
+                        }
+
+                        // Removing col 'Nach Aggregat, Armatur, Rohrltg., (AKZ)' and move content to 'Nach Aggregat'
+                        if (isset($row["Nach Aggregat, Armatur, Rohrltg., (AKZ)"])) {
+                            $row["Nach Aggregat"] = $row["Nach Aggregat, Armatur, Rohrltg., (AKZ)"];
+                            unset($row["Nach Aggregat, Armatur, Rohrltg., (AKZ)"]);
+                        }
+                    }
+                    
                     // Removing col 'Bezeichnung' and move content to 'Benennung'
                     if (isset($row["Bezeichnung"])) {
                         $row["Benennung"] = $row["Bezeichnung"];
