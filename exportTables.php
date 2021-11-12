@@ -41,7 +41,7 @@
     } elseif ($table == 'Masterliste') {
         $query = "SELECT `TBF_ID`,`PnPID`,`Elektro_ID`,`Revit_ID`,`Allplan_ID` FROM `Gesamtdatenbank`";
     } elseif ($table == 'SEF_Rohrleitungsliste') {
-        $query = "SELECT `TBF_ID`,`RohrBez_Gr2_Anlagenteil`,`RohrBez_Gr3_Rohrklasse`,`RohrBez_Gr4_Medium`,`RohrBez_Gr5_Nummer`,`RohrBez_Gr6_ Zusatzinformation`,`RLL_Bezeichnung` AS `Bezeichnung`,`Fördermedium`,`Von Ort`,`Von Aggregat` AS `Von Aggregat, Armatur, Rohrltg., (AKZ)`,`Nach Ort`,`Nach Aggregat` AS `Nach Aggregat, Armatur, Rohrltg., (AKZ)`,`Werkstoff`, `Betriebsdruck (bar)`, `Durchmesser` AS `Durchmesser (DN, DA)`, `Länge [m]` AS `Länge (m)`, `Datum Änderung`, `Bemerkung`  FROM `Gesamtdatenbank`";
+        $query = "SELECT `TBF_ID`,`RohrBez_Gr2_Anlagenteil`,`RohrBez_Gr3_Rohrklasse`,`RohrBez_Gr4_Medium`,`RohrBez_Gr5_Nummer`,`RohrBez_Gr6_ Zusatzinformation`,`RLL_Bezeichnung` AS `Bezeichnung`,`Fördermedium`,`Von Ort`,`Von Aggregat` AS `Von Aggregat, Armatur, Rohrltg., (AKZ)`,`Nach Ort`,`Nach Aggregat` AS `Nach Aggregat, Armatur, Rohrltg., (AKZ)`,`Werkstoff`, `Betriebsdruck (bar)`, `Durchmesser` AS `Durchmesser (DN, DA)`, `Länge [m]` AS `Länge (m)`, `Datum Änderung`, `Bemerkung`  FROM `Gesamtdatenbank` WHERE `RLL` = 1";
     #RI-Listen
     } elseif ($table == 'RI-TBF_SEF_Allplan_Liste') {
         $query = "SELECT `TBF_ID`,`Allplan_ID`,`Typ`,`Familie`,`Raumnnummer`,`Raumlänge`,`Raumbreite`,`Raumhöhe`,`Raumfläche`,`Raumvolumen`,`Ort x-Koordinate`,`Ort y-Koordinate`,`Ort z-Koordinate` FROM `Gesamtdatenbank`";

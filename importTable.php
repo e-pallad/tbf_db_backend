@@ -49,7 +49,10 @@
         $tableSelector = 'VBL';
     } elseif ($table == 'RI-TBF_SEF_PlancalNova_Liste') {
         $tableSelector = 'PLA';
-    } else {
+    } elseif ($table == 'RI-TBF_SEF_Rohrleitungsliste') {
+        $tableSelector = 'RLL';
+    } 
+    else {
         $tableSelector = NULL;
     }
     
