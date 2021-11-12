@@ -212,6 +212,7 @@
 
 
                     if ($con->query("INSERT INTO `Gesamtdatenbank` ($cols) VALUES($values) ON DUPLICATE KEY UPDATE " . implode(",", $duplicates))) {
+                        $insertCount++;
                         continue;
                     } else {
                         $statusMsg[] = $row;
