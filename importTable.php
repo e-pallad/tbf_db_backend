@@ -197,6 +197,11 @@
                         unset($row["Zeichnung"]);
                     }
 
+                    // Removing col 'X'
+                    if (isset($row["X"])) {
+                        unset($row["X"]);
+                    }
+
                     $cols = "`" . implode("`,`", array_keys($row)) . "`";
                     $values = "'" . implode("','", array_values($row)) . "'";
                     (array_values($row) == "True") ? 1 : 2 ;
