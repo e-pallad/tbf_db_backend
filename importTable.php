@@ -135,6 +135,12 @@
                             $row["Durchmesser"] = $row["Durchmesser (DN, DA)"];
                             unset($row["Durchmesser (DN, DA)"]);
                         }
+
+                        // Removing col 'Länge (m)' and move content to 'Länge [m]'
+                        if (isset($row["Länge (m)"])) {
+                            $row["Länge [m]"] = $row["Länge (m)"];
+                            unset($row["Länge (m)"]);
+                        }
                     }
 
                     // Removing col 'Leistung mit Gleichzeitigkeitsfaktor' from imports
@@ -224,6 +230,12 @@
                                 $row["Durchmesser"] = $row["Durchmesser (DN, DA)"];
                                 unset($row["Durchmesser (DN, DA)"]);
                             }
+
+                            // Removing col 'Länge (m)' and move content to 'Länge [m]'
+                            if (isset($row["Länge (m)"])) {
+                                $row["Länge [m]"] = $row["Länge (m)"];
+                                unset($row["Länge (m)"]);
+                            }
                         }
 
                         // If PnPID doesnt exist perform default INSERT
@@ -281,6 +293,12 @@
                         if (isset($row["Durchmesser (DN, DA)"])) {
                             $row["Durchmesser"] = $row["Durchmesser (DN, DA)"];
                             unset($row["Durchmesser (DN, DA)"]);
+                        }
+
+                        // Removing col 'Länge (m)' and move content to 'Länge [m]'
+                        if (isset($row["Länge (m)"])) {
+                            $row["Länge [m]"] = $row["Länge (m)"];
+                            unset($row["Länge (m)"]);
                         }
                     }
 
