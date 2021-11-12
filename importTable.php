@@ -51,8 +51,7 @@
         $tableSelector = 'PLA';
     } elseif ($table == 'RI-TBF_SEF_Rohrleitungsliste') {
         $tableSelector = 'RLL';
-    } 
-    else {
+    } else {
         $tableSelector = NULL;
     }
     
