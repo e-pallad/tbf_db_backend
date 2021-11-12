@@ -129,6 +129,12 @@
                             $row["Nach Aggregat"] = $row["Nach Aggregat, Armatur, Rohrltg., (AKZ)  "];
                             unset($row["Nach Aggregat, Armatur, Rohrltg., (AKZ)  "]);
                         }
+
+                        // Removing col 'Durchmesser (DN, DA)' and move content to 'Durchmesser'
+                        if (isset($row["Durchmesser (DN, DA)"])) {
+                            $row["Durchmesser"] = $row["Durchmesser (DN, DA)"];
+                            unset($row["Durchmesser (DN, DA)"]);
+                        }
                     }
 
                     // Removing col 'Leistung mit Gleichzeitigkeitsfaktor' from imports
@@ -212,6 +218,12 @@
                                 $row["Nach Aggregat"] = $row["Nach Aggregat, Armatur, Rohrltg., (AKZ)  "];
                                 unset($row["Nach Aggregat, Armatur, Rohrltg., (AKZ)  "]);
                             }
+
+                            // Removing col 'Durchmesser (DN, DA)' and move content to 'Durchmesser'
+                            if (isset($row["Durchmesser (DN, DA)"])) {
+                                $row["Durchmesser"] = $row["Durchmesser (DN, DA)"];
+                                unset($row["Durchmesser (DN, DA)"]);
+                            }
                         }
 
                         // If PnPID doesnt exist perform default INSERT
@@ -263,6 +275,12 @@
                         if (isset($row["Nach Aggregat, Armatur, Rohrltg., (AKZ)  "])) {
                             $row["Nach Aggregat"] = $row["Nach Aggregat, Armatur, Rohrltg., (AKZ)  "];
                             unset($row["Nach Aggregat, Armatur, Rohrltg., (AKZ)  "]);
+                        }
+
+                        // Removing col 'Durchmesser (DN, DA)' and move content to 'Durchmesser'
+                        if (isset($row["Durchmesser (DN, DA)"])) {
+                            $row["Durchmesser"] = $row["Durchmesser (DN, DA)"];
+                            unset($row["Durchmesser (DN, DA)"]);
                         }
                     }
 
