@@ -119,15 +119,15 @@
                         }
 
                         // Removing col 'Von Aggregat, Armatur, Rohrltg., (AKZ)' and move content to 'Von Aggregat'
-                        if (isset($row["Von Aggregat, Armatur, Rohrltg., (AKZ)"])) {
-                            $row["Von Aggregat"] = $row["Von Aggregat, Armatur, Rohrltg., (AKZ)"];
-                            unset($row["Von Aggregat, Armatur, Rohrltg., (AKZ)"]);
+                        if (isset($row["Von Aggregat, Armatur, Rohrltg., (AKZ) "])) {
+                            $row["Von Aggregat"] = $row["Von Aggregat, Armatur, Rohrltg., (AKZ) "];
+                            unset($row["Von Aggregat, Armatur, Rohrltg., (AKZ) "]);
                         }
 
                         // Removing col 'Nach Aggregat, Armatur, Rohrltg., (AKZ)' and move content to 'Nach Aggregat'
-                        if (isset($row["Nach Aggregat, Armatur, Rohrltg., (AKZ)"])) {
-                            $row["Nach Aggregat"] = $row["Nach Aggregat, Armatur, Rohrltg., (AKZ)"];
-                            unset($row["Nach Aggregat, Armatur, Rohrltg., (AKZ)"]);
+                        if (isset($row["Nach Aggregat, Armatur, Rohrltg., (AKZ)  "])) {
+                            $row["Nach Aggregat"] = $row["Nach Aggregat, Armatur, Rohrltg., (AKZ)  "];
+                            unset($row["Nach Aggregat, Armatur, Rohrltg., (AKZ)  "]);
                         }
                     }
 
@@ -202,15 +202,15 @@
                             }
 
                             // Removing col 'Von Aggregat, Armatur, Rohrltg., (AKZ)' and move content to 'Von Aggregat'
-                            if (isset($row["Von Aggregat, Armatur, Rohrltg., (AKZ)"])) {
-                                $row["Von Aggregat"] = $row["Von Aggregat, Armatur, Rohrltg., (AKZ)"];
-                                unset($row["Von Aggregat, Armatur, Rohrltg., (AKZ)"]);
+                            if (isset($row["Von Aggregat, Armatur, Rohrltg., (AKZ) "])) {
+                                $row["Von Aggregat"] = $row["Von Aggregat, Armatur, Rohrltg., (AKZ) "];
+                                unset($row["Von Aggregat, Armatur, Rohrltg., (AKZ) "]);
                             }
 
                             // Removing col 'Nach Aggregat, Armatur, Rohrltg., (AKZ)' and move content to 'Nach Aggregat'
-                            if (isset($row["Nach Aggregat, Armatur, Rohrltg., (AKZ)"])) {
-                                $row["Nach Aggregat"] = $row["Nach Aggregat, Armatur, Rohrltg., (AKZ)"];
-                                unset($row["Nach Aggregat, Armatur, Rohrltg., (AKZ)"]);
+                            if (isset($row["Nach Aggregat, Armatur, Rohrltg., (AKZ)  "])) {
+                                $row["Nach Aggregat"] = $row["Nach Aggregat, Armatur, Rohrltg., (AKZ)  "];
+                                unset($row["Nach Aggregat, Armatur, Rohrltg., (AKZ)  "]);
                             }
                         }
 
@@ -254,18 +254,18 @@
                         }
 
                         // Removing col 'Von Aggregat, Armatur, Rohrltg., (AKZ)' and move content to 'Von Aggregat'
-                        if (isset($row["Von Aggregat, Armatur, Rohrltg., (AKZ)"])) {
-                            $row["Von Aggregat"] = $row["Von Aggregat, Armatur, Rohrltg., (AKZ)"];
-                            unset($row["Von Aggregat, Armatur, Rohrltg., (AKZ)"]);
+                        if (isset($row["Von Aggregat, Armatur, Rohrltg., (AKZ) "])) {
+                            $row["Von Aggregat"] = $row["Von Aggregat, Armatur, Rohrltg., (AKZ) "];
+                            unset($row["Von Aggregat, Armatur, Rohrltg., (AKZ) "]);
                         }
 
                         // Removing col 'Nach Aggregat, Armatur, Rohrltg., (AKZ)' and move content to 'Nach Aggregat'
-                        if (isset($row["Nach Aggregat, Armatur, Rohrltg., (AKZ)"])) {
-                            $row["Nach Aggregat"] = $row["Nach Aggregat, Armatur, Rohrltg., (AKZ)"];
-                            unset($row["Nach Aggregat, Armatur, Rohrltg., (AKZ)"]);
+                        if (isset($row["Nach Aggregat, Armatur, Rohrltg., (AKZ)  "])) {
+                            $row["Nach Aggregat"] = $row["Nach Aggregat, Armatur, Rohrltg., (AKZ)  "];
+                            unset($row["Nach Aggregat, Armatur, Rohrltg., (AKZ)  "]);
                         }
                     }
-                    
+
                     // Removing col 'Bezeichnung' and move content to 'Benennung'
                     if (isset($row["Bezeichnung"])) {
                         $row["Benennung"] = $row["Bezeichnung"];
