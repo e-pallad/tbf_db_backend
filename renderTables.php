@@ -43,7 +43,7 @@
     } elseif ($table == 'RI-TBF_SEF_Revit_Liste') {
         $query = "SELECT `Revit_ID`,`FamilyAndType`,`Revit_Type` AS 'Type', `Benennung`, `R&I EB68-Nr.` AS 'Plannummer R+I', `AKZ_Gr1_Standort`,`AKZ_Gr2_Anlagenteil`,`AKZ_Gr3_Aggregat`,`AKZ_Gr4_Nummer`,`AKZ_Gr5_Aggregat`,`AKZ_Gr6_Nummer`,`Länge [m]` ,`Breite`,`Höhe`,`Radius`,`Ebene`,`TBF_ID` FROM `Gesamtdatenbank` WHERE `REV` = 1";
     } elseif ($table == 'RI-TBF_SEF_Rohrleitungsliste') {
-        $query = "SELECT `TBF_ID`,`PnPID`,`AKZ_Gr1_Standort`,`AKZ_Gr2_Anlagenteil`,`AKZ_Gr3_Aggregat`,`AKZ_Gr4_Nummer`,`AKZ_Gr5_Aggregat`,`AKZ_Gr6_Nummer`,`Benennung`,`Benennung Zusatz`,`R&I EB68-Nr.`,`Feld-Nr.`,`Zchn. Rev. Nr.`,`Hersteller`,`Typ`,`Nennleistung`,`Werkstoff`,`Zustand/Bearbeitung`,`Bemerkung`,`DN`,`PN`,`Durchflussmenge`,`Einheit Df-Menge`,`Durchmesser`,`Wanddicke`,`Betriebsüberdruck`,`Berechnungsüberdruck`,`Betriebstemperatur`,`Berechnungstemperatur`,`Länge [m]` FROM `Gesamtdatenbank`";
+        $query = "SELECT `PnPID`,`TBF_ID`,`RohrBez_Gr2_Anlagenteil`,`RohrBez_Gr3_Rohrklasse`,`RohrBez_Gr4_Medium`,`RohrBez_Gr5_Nummer`,`RohrBez_Gr6_ Zusatzinformation`,`RLL_Bezeichnung` AS 'Bezeichnung',`RLL_Kurzbezeichnung` AS 'Kurzbezeichnung',`Fördermedium`,`Von Ort`,`Von Aggregat` AS 'Von Aggregat, Armatur, Rohrltg., (AKZ)',`Nach Ort`,`Nach Aggregat` AS 'Nach Aggregat, Armatur, Rohrltg., (AKZ)', `Werkstoff`, `Druckstufe (bar)`,`Betriebsdruck (bar)`,`Durchmesser` AS 'Durchmesser (DN, DA)', `Länge [m]` AS 'Länge (m)', `Datum Änderung`, `Bemerkung` FROM `Gesamtdatenbank` WHERE `RLL` = 1";
     }
 
     $header = mysqli_fetch_fields($con->query($query));
