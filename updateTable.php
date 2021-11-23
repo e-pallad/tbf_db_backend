@@ -91,6 +91,33 @@
                     }
                 }
 
+                if ($table === "RI-TBF_SEF_Rohrleitungsliste") {
+                    if (array_key_exists("Bezeichnung", $dataArray)) {
+                        $dataArray["RLL_Bezeichnung"] = $dataArray["Bezeichnung"];
+                        unset($dataArray["Bezeichnung"]);
+                    }
+                    if (array_key_exists("Kurzbezeichnung", $dataArray)) {
+                        $dataArray["RLL_Kurzbezeichnung"] = $dataArray["Kurzbezeichnung"];
+                        unset($dataArray["Kurzbezeichnung"]);
+                    }
+                    if (array_key_exists("Von Aggregat, Armatur, Rohrltg., (AKZ)", $dataArray)) {
+                        $dataArray["Von Aggregat"] = $dataArray["Von Aggregat, Armatur, Rohrltg., (AKZ)"];
+                        unset($dataArray["Von Aggregat, Armatur, Rohrltg., (AKZ)"]);
+                    }
+                    if (array_key_exists("Nach Aggregat, Armatur, Rohrltg., (AKZ)", $dataArray)) {
+                        $dataArray["Nach Aggregat"] = $dataArray["Nach Aggregat, Armatur, Rohrltg., (AKZ)"];
+                        unset($dataArray["Nach Aggregat, Armatur, Rohrltg., (AKZ)"]);
+                    }
+                    if (array_key_exists("Durchmesser (DN, DA)", $dataArray)) {
+                        $dataArray["Durchmesser"] = $dataArray["Durchmesser (DN, DA)"];
+                        unset($dataArray["Durchmesser (DN, DA)"]);
+                    }
+                    if (array_key_exists("Länge (m)", $dataArray)) {
+                        $dataArray["Länge [m]"] = $dataArray["Länge (m)"];
+                        unset($dataArray["Länge (m)"]);
+                    }
+                }
+
                 $query = "UPDATE `Gesamtdatenbank` SET ";
 
                 $i = 0;
