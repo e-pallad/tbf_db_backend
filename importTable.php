@@ -107,7 +107,7 @@
                     } 
                     
                     // create special case for Rohrleitungsliste
-                    if ($table === 'RI-TBF_SEF_Rohrleitungsliste') {
+                    if ($table === 'RI-TBF_SEF_Rohrleitungsliste' || $table === 'SEF_Rohrleitungsliste') {
                         // Removing col 'Bezeichnung' and move content to 'RLL_Bezeichnung'
                         if (isset($row["Bezeichnung"])) {
                             $row["RLL_Bezeichnung"] = $row["Bezeichnung"];
@@ -207,7 +207,7 @@
                         }
                     } else {
                         // create special case for Rohrleitungsliste
-                        if ($table === 'RI-TBF_SEF_Rohrleitungsliste') {
+                        if ($table === 'RI-TBF_SEF_Rohrleitungsliste' || $table === 'SEF_Rohrleitungsliste') {
                             // Removing col 'Bezeichnung' and move content to 'RLL_Bezeichnung'
                             if (isset($row["Bezeichnung"])) {
                                 $row["RLL_Bezeichnung"] = $row["Bezeichnung"];
@@ -276,7 +276,7 @@
                     }
                 } else {
                     // create special case for Rohrleitungsliste
-                    if ($table === 'RI-TBF_SEF_Rohrleitungsliste') {
+                    if ($table === 'RI-TBF_SEF_Rohrleitungsliste' || $table === 'SEF_Rohrleitungsliste') {
                         // Removing col 'Bezeichnung' and move content to 'RLL_Bezeichnung'
                         if (isset($row["Bezeichnung"])) {
                             $row["RLL_Bezeichnung"] = $row["Bezeichnung"];
