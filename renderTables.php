@@ -39,7 +39,7 @@
     } elseif ($table == 'RI-TBF_SEF_Allplan_Liste') {
         $query = "SELECT `TBF_ID`,`Allplan_ID`,`Typ`,`Familie`,`Raumnnummer`,`Raumlänge`,`Raumbreite`,`Raumhöhe`,`Raumfläche`,`Raumvolumen`,`Ort x-Koordinate`,`Ort y-Koordinate`,`Ort z-Koordinate` FROM `Gesamtdatenbank`";
     } elseif ($table == 'RI-TBF_SEF_PlancalNova_Liste') {
-        $query = "SELECT `Index`, `Klasse`, `Medium`, `R&I EB68-Nr.` AS `Zeichnung`, `TBF_ID`, `AKZ_Gr1_Standort`, `AKZ_Gr2_Anlagenteil`, `AKZ_Gr3_Aggregat`, `AKZ_Gr4_Nummer`, `AKZ_Gr5_Aggregat`, `AKZ_Gr6_Nummer`, `Benennung`, `Benennung Zusatz`, `Hersteller`, `Typ`, `Nennleistung`, `Nennspannung`, `Nennstrom`, `Massenstrom`, `Signalart` FROM `Gesamtdatenbank` WHERE `PLA` = 1";
+        $query = "SELECT `Index`, `Klasse`, `Medium`, `R&I EB68-Nr.` AS `Zeichnung`, `TBF_ID`, `AKZ_Gr1_Standort`, `AKZ_Gr2_Anlagenteil`, `AKZ_Gr3_Aggregat`, `AKZ_Gr4_Nummer`, `AKZ_Gr5_Aggregat`, `AKZ_Gr6_Nummer`, `Benennung`, `Benennung Zusatz`, `Hersteller`, `Typ`, `Nennleistung`, `Nennspannung`, `Nennstrom`, `Massenstrom`, `Signalart`, `Raumbezeichnung`, `Geschoss` FROM `Gesamtdatenbank` WHERE `PLA` = 1";
     } elseif ($table == 'RI-TBF_SEF_Revit_Liste') {
         $query = "SELECT `Revit_ID`,`FamilyAndType`,`Revit_Type` AS 'Type', `Benennung`, `R&I EB68-Nr.` AS 'Plannummer R+I', `AKZ_Gr1_Standort`,`AKZ_Gr2_Anlagenteil`,`AKZ_Gr3_Aggregat`,`AKZ_Gr4_Nummer`,`AKZ_Gr5_Aggregat`,`AKZ_Gr6_Nummer`,`Länge [m]` ,`Breite`,`Höhe`,`Radius`,`Ebene`,`TBF_ID` FROM `Gesamtdatenbank` WHERE `REV` = 1";
     } elseif ($table == 'RI-TBF_SEF_Rohrleitungsliste') {
