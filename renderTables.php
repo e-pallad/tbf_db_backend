@@ -6,6 +6,8 @@
     ini_set("log_errors", 1);
     ini_set("error_log", $_SERVER['DOCUMENT_ROOT'] . "/php-error.log");
 
+    ini_set('memory_limit', '256M');
+
     $method = $_SERVER['REQUEST_METHOD'];
     $table = $_GET['table'];
     
