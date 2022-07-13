@@ -67,6 +67,19 @@
         $data[] = array("","","ElementId","Text","Text","Text","Number");
         $mysqlData = mysqli_fetch_all($con->query($query));
         $CSVdata = array_merge($data, $mysqlData);
+    } elseif ($table == 'SEF_Messstellenliste') {
+        $data[] = $headerRow;
+        $mysqlData = mysqli_fetch_all($con->query($query));
+        foreach($mysqlData as $key => $value) {
+            if ($value == 'false' ) {
+                $key[$value] = "";
+            } elseif ($value == 'true') {
+                $key[$value] = "x";
+            } else {
+                continue;
+            }
+        }
+        $CSVdata = array_merge($data, $mysqlData);
     } else {
         $data[] = $headerRow;
         $mysqlData = mysqli_fetch_all($con->query($query));
