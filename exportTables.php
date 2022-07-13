@@ -75,12 +75,12 @@
                 $falseKeys = array_keys($innerArray, "False");
                 $trueKeys = array_keys($innerArray, "True");
                 if (is_array($falseKeys)) {
-                    foreach ($keys as $key) {
+                    foreach ($falseKeys as $key) {
                         $innerArray[$key] = "";
                     }
                 }
                 if (is_array($trueKeys)) {
-                    foreach ($keys as $key) {
+                    foreach ($trueKeys as $key) {
                         $innerArray[$key] = "X";
                     }
                 }
