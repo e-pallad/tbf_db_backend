@@ -71,9 +71,9 @@
         $data[] = $headerRow;
         $mysqlData = mysqli_fetch_all($con->query($query));
         foreach($mysqlData as $key => $value) {
-            if ($value == 'false' ) {
+            if ($value == 'False' ) {
                 $key[$value] = "";
-            } elseif ($value == 'true') {
+            } elseif ($value == 'True') {
                 $key[$value] = "x";
             } else {
                 continue;
