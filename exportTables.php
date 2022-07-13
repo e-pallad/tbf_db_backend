@@ -99,19 +99,19 @@
         case 'GET':
             $xlsx = SimpleXLSXGen::fromArray( $CSVdata );
             
-            /*
+            
             header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8');
             header('Access-Control-Allow-Origin: *');
             header('Content-Disposition: attachment; filename="'. $table .'.xlsx";');
 
             $xlsx->downloadAs("$table.xlsx");
-			*/
-            
+			
+            /*
 			header('Content-Type: application/json;');
             header('Access-Control-Allow-Origin: *');
 
             echo json_encode($innerArray);
-            
+            */
             break;
         default:
             echo http_response_code(403);
