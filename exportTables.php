@@ -73,7 +73,7 @@
         foreach ($mysqlData as $innerArray) {
             if (is_array($innerArray)) {
                 foreach ($innerArray as $key => $value) {
-                    if ($key[$values] == 'False' ) {
+                    if ($key[$value] == 'False' ) {
                         $key[$value] = "";
                     } elseif ($key == 'True') {
                         $key = "x";
