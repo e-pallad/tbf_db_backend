@@ -73,8 +73,8 @@
         foreach ($mysqlData as $innerArray) {
             if (is_array($innerArray)) {
                 foreach ($innerArray as $key => $value) {
-                    if ($key[$value] == 'False' ) {
-                        $key[$value] = "";
+                    if ($key == 'False' ) {
+                        $key = "";
                     } elseif ($key == 'True') {
                         $key = "x";
                     } else {
@@ -107,7 +107,7 @@
 			header('Content-Type: application/json;');
             header('Access-Control-Allow-Origin: *');
 
-            echo json_encode($mysqlData);
+            echo json_encode($key);
             
             break;
         default:
