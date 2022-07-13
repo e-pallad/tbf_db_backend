@@ -70,11 +70,17 @@
     } elseif ($table == 'SEF_Messstellenliste') {
         $data[] = $headerRow;
         $mysqlData = mysqli_fetch_all($con->query($query));
-        foreach($mysqlData as $key => $value) {
-            if ($value == 'False' ) {
-                $key[$value] = "";
-            } elseif ($value == 'True') {
-                $key[$value] = "x";
+        foreach ($mysqlData as $innerArray) {
+            if (is_array($innerArray)) {
+                foreach ($innerArray as $key => $value) {
+                    if ($value == 'False' ) {
+                        $key[$value] = "";
+                    } elseif ($value == 'True') {
+                        $key[$value] = "x";
+                    } else {
+                        continue;
+                    }
+                }
             } else {
                 continue;
             }
@@ -101,7 +107,7 @@
 			header('Content-Type: application/json;');
             header('Access-Control-Allow-Origin: *');
 
-            echo json_encode($mysqlData);
+            echo json_encode($innerArray);
             
             break;
         default:
