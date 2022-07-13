@@ -72,14 +72,9 @@
         $mysqlData = mysqli_fetch_all($con->query($query));
         foreach ($mysqlData as $innerArray) {
             if (is_array($innerArray)) {
-                foreach ($innerArray as $key => $value) {
-                    if ($value === "False" ) {
-                        $value = "";
-                    } elseif ($key == 'True') {
-                        $key = "x";
-                    } else {
-                        continue;
-                    }
+                $keys = array_keys($innerArray, "False");
+                foreach ($keys as $key) {
+                    $innerArray[$key] = "";
                 }
             } else {
                 continue;
@@ -107,7 +102,7 @@
 			header('Content-Type: application/json;');
             header('Access-Control-Allow-Origin: *');
 
-            echo json_encode($innerArray );
+            echo json_encode($innerArray);
             
             break;
         default:
