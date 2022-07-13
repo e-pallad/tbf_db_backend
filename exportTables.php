@@ -72,9 +72,17 @@
         $mysqlData = mysqli_fetch_all($con->query($query));
         foreach ($mysqlData as $innerArray) {
             if (is_array($innerArray)) {
-                $keys = array_keys($innerArray, "False");
-                foreach ($keys as $key) {
-                    $innerArray[$key] = "";
+                $falseKeys = array_keys($innerArray, "False");
+                $trueKeys = array_keys($innerArray, "True");
+                if (is_array($falseKeys)) {
+                    foreach ($keys as $key) {
+                        $innerArray[$key] = "";
+                    }
+                }
+                if (is_array($trueKeys)) {
+                    foreach ($keys as $key) {
+                        $innerArray[$key] = "X";
+                    }
                 }
             } else {
                 continue;
