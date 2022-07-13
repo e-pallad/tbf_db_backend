@@ -74,9 +74,9 @@
             if (is_array($innerArray)) {
                 foreach ($innerArray as $key => $value) {
                     if ($value == 'False' ) {
-                        $key[$value] = "";
+                        $value = "";
                     } elseif ($value == 'True') {
-                        $key[$value] = "x";
+                        $value = "x";
                     } else {
                         continue;
                     }
