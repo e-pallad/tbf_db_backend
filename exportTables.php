@@ -76,7 +76,7 @@
                 $trueKeys = array_keys($innerArray, "True");
                 if (is_array($falseKeys)) {
                     foreach ($falseKeys as $key) {
-                        $innerArray[$key] = "";
+                        $innerArray[$key] = NULL;
                     }
                 }
                 if (is_array($trueKeys)) {
