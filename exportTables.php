@@ -74,7 +74,7 @@
             if (is_array($innerArray)) {
                 foreach ($innerArray as $key => $value) {
                     if ($value === "False" ) {
-                        $key[$value] = "";
+                        $value = "";
                     } elseif ($key == 'True') {
                         $key = "x";
                     } else {
@@ -107,7 +107,7 @@
 			header('Content-Type: application/json;');
             header('Access-Control-Allow-Origin: *');
 
-            echo json_encode($value);
+            echo json_encode($innerArray );
             
             break;
         default:
