@@ -70,19 +70,25 @@
     } elseif ($table == 'SEF_Messstellenliste') {
         $data[] = $headerRow;
         $mysqlData = mysqli_fetch_all($con->query($query));
-        $falseKeys = array_keys($mysqlData, "False");
-        $trueKeys = array_keys($mysqlData, "True");
+        foreach ($mysqlData as &$innerArray) {
+            if (is_array($innerArray)) {
+                $falseKeys = array_keys($innerArray, "False");
+                $trueKeys = array_keys($innerArray, "True");
                 if (is_array($falseKeys)) {
                     foreach ($falseKeys as $key) {
-                        $mysqlData[$key] = NULL;
+                        $innerArray[$key] = NULL;
                     }
                 }
                 if (is_array($trueKeys)) {
                     foreach ($trueKeys as $key) {
-                        $mysqlData[$key] = "X";
+                        $innerArray[$key] = "X";
                     }
                 }
-        $CSVdata = array_merge($data, $mysqlData);
+            } else {
+                continue;
+            }
+        }
+        $CSVdata = array_merge($data, $innerArray);
     } else {
         $data[] = $headerRow;
         $mysqlData = mysqli_fetch_all($con->query($query));
@@ -91,9 +97,9 @@
 
     switch ($method) {
         case 'GET':
+            /*
             $xlsx = SimpleXLSXGen::fromArray( $CSVdata );
             
-            /*
             header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8');
             header('Access-Control-Allow-Origin: *');
             header('Content-Disposition: attachment; filename="'. $table .'.xlsx";');
