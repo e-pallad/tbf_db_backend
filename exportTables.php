@@ -70,25 +70,19 @@
     } elseif ($table == 'SEF_Messstellenliste') {
         $data[] = $headerRow;
         $mysqlData = mysqli_fetch_all($con->query($query));
-        foreach ($mysqlData as $innerArray) {
-            if (is_array($innerArray)) {
-                $falseKeys = array_keys($innerArray, "False");
-                $trueKeys = array_keys($innerArray, "True");
+        $falseKeys = array_keys($mysqlData, "False");
+        $trueKeys = array_keys($mysqlData, "True");
                 if (is_array($falseKeys)) {
                     foreach ($falseKeys as $key) {
-                        $innerArray[$key] = NULL;
+                        $mysqlData[$key] = NULL;
                     }
                 }
                 if (is_array($trueKeys)) {
                     foreach ($trueKeys as $key) {
-                        $innerArray[$key] = "X";
+                        $mysqlData[$key] = "X";
                     }
                 }
-            } else {
-                continue;
-            }
-        }
-        $CSVdata = array_merge($data, $innerArray);
+        $CSVdata = array_merge($data, $mysqlData);
     } else {
         $data[] = $headerRow;
         $mysqlData = mysqli_fetch_all($con->query($query));
