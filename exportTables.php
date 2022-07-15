@@ -88,7 +88,7 @@
                 continue;
             }
         }
-        $CSVdata = array_merge($data, $innerArray);
+        $CSVdata = array_merge($data, $mysqlData);
     } else {
         $data[] = $headerRow;
         $mysqlData = mysqli_fetch_all($con->query($query));
