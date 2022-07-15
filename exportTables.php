@@ -88,7 +88,7 @@
                 continue;
             }
         }
-        $CSVdata = array_merge($data, $mysqlData);
+        $CSVdata = array_merge($data, $innerArray);
     } else {
         $data[] = $headerRow;
         $mysqlData = mysqli_fetch_all($con->query($query));
@@ -110,7 +110,7 @@
 			header('Content-Type: application/json;');
             header('Access-Control-Allow-Origin: *');
 
-            echo json_encode($mysqlData);
+            echo json_encode($CSVdata);
             
             break;
         default:
