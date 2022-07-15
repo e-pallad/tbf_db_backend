@@ -110,7 +110,7 @@
 			header('Content-Type: application/json;');
             header('Access-Control-Allow-Origin: *');
 
-            echo json_encode($innerArray);
+            echo json_encode($mysqlData);
             
             break;
         default:
